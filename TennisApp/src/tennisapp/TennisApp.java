@@ -9,15 +9,15 @@ package tennisapp;
 /**
  *
  * @author Karusu
- *//*
-public class TennisApp {*/
+ */
+public class TennisApp {
 
     /**
-     * @param args the command line arguments
+      @param args the command line arguments
      */
-   /* public static void main(String[] args) {
+    public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("ready");
     }
     
-}*/
+}
