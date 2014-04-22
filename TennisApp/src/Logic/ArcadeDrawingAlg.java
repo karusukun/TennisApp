@@ -1,7 +1,5 @@
 package Logic;
-import Library.Figure;
-import Library.Design;
-import Library.kindFigure;
+import Library.*;
 import javax.swing.*; 
 import java.awt.*; 
 import java.util.ArrayList;
@@ -17,17 +15,24 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     public void DrawDesign(Design pDesign) {
         //drawFigures(pDesign.getFigureList(), g );
     }
-    /*
-    public void drawFigures(List<Figure> pfigureList, Graphics g){
+    
+    public void drawFigures(List<Figure> pfigureList, Graphics pGrap){
         int listLong=0;
         while(listLong < pfigureList.size()){
             if(pfigureList.get(listLong).getKindFigure() == kindFigure.Circle){
-                drawCircle(g);
+                Circle oval = (Circle) pfigureList.get(listLong);
+                drawCircle(oval, pGrap);
             }
+            listLong++;
         }
     }
     
-    private void drawCircle(Graphics g){
-    }*/
+    private void drawCircle(Circle pCircle, Graphics pGrap){
+        pGrap.setColor(pCircle.getColor());
+        pGrap.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+        if(pCircle.getFill() ){
+            pGrap.fillOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+        }
+    }
 
 }

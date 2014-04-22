@@ -2,6 +2,7 @@
 package Library;
     
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+import java.awt.Color;
 
     /*
      * This class have the chacacteristics like thickness, color ...
@@ -10,11 +11,11 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 public class Figure
 {
     //Figure's attributes
-    protected int _fill;
+    protected boolean _fill;
     protected int stroke_Thickness;
     protected int _stroke;
     protected int _figureId;
-    protected int  _color;         //It saves an hexadecimal number, Have to parse to hex
+    protected Color  _color;         //It saves an hexadecimal number, Have to parse to hex
     //**
     protected int _x1;
     protected int _y1;
@@ -26,8 +27,8 @@ public class Figure
         _x1 = 0;
         _y1 = 0;
         stroke_Thickness = 0;
-        _fill = 0;
-        _color = 0x0;
+        _fill = false;
+        _color = null;
         _stroke = 0;
         _kindFigure = kindFigure.SimpleFigure;
     }
@@ -40,11 +41,11 @@ public class Figure
         this._kindFigure = _kindFigure;
     }
     
-    public int getFill() {
+    public boolean getFill() {
         return _fill;
     }
 
-    public void setFill(int _fill) {
+    public void setFill(boolean _fill) {
         this._fill = _fill;
     }
 
@@ -72,11 +73,11 @@ public class Figure
         this._figureId = _figureId;
     }
 
-    public int getColor() {
+    public Color getColor() {
         return _color;
     }
 
-    public void setColor(int _color) {
+    public void setColor(Color _color) {
         this._color = _color;
     }
 

@@ -1,5 +1,5 @@
 package tennisApp;
-import Library.Figure;
+import Library.*;
 import Logic.ArcadeDrawingAlg;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,11 @@ public class MiFrame extends JFrame {
     public void paint(Graphics g) {
         ArcadeDrawingAlg example = new ArcadeDrawingAlg();
         List<Figure> figList = new ArrayList();
-        //example.drawFigures(figList, g);
-        
+        Circle c = new Circle(150,30,50);
+        c.setFill(true);
+        c.setColor(Color.CYAN);
+        figList.add(c);
+        example.drawFigures(figList, g);
     } 
     public static void main(String args[]) { 
         MiFrame mf = new MiFrame(); 

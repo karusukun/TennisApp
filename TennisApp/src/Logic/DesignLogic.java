@@ -1,9 +1,10 @@
 package Logic;
-import Library.Figure;
 import Library.Design;
+import Library.Figure;
 import Library.StraightLine;
-import java.util.*;
+import java.awt.Color;
  import java.io.*;
+import java.util.*;
 
 /*
  * This class works on the designs
@@ -92,7 +93,7 @@ public final class DesignLogic
     }
 
     //Change the color of the figure
-    public void setFigureColor(String pColor, int pFigureId) {
+    public void setFigureColor(Color pColor, int pFigureId) {
         List<Figure> figureList = this._ActualDesign.getFigureList();
         int figurePosition = 0;
         try
@@ -100,7 +101,7 @@ public final class DesignLogic
            while (figurePosition < figureList.size() && figureList.get(figurePosition).getFigureId() != pFigureId) {
                 figurePosition++;
             }
-            figureList.get(figurePosition).setColor(Integer.parseInt(pColor, 16));  //Convert string color to hexadecimal
+            figureList.get(figurePosition).setColor(pColor);  //Convert string color to hexadecimal
         }
         catch (Exception e)
         {
