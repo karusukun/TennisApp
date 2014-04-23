@@ -13,7 +13,7 @@ public class Figure
     //Figure's attributes
     protected boolean _fill;
     protected int stroke_Thickness;
-    protected int _stroke;
+    protected Color _stroke;
     protected int _figureId;
     protected Color  _color;         //It saves an hexadecimal number, Have to parse to hex
     //**
@@ -29,7 +29,7 @@ public class Figure
         stroke_Thickness = 0;
         _fill = false;
         _color = null;
-        _stroke = 0;
+        _stroke = null;
         _kindFigure = kindFigure.SimpleFigure;
     }
 
@@ -57,11 +57,11 @@ public class Figure
         this.stroke_Thickness = stroke_Thickness;
     }
 
-    public int getStroke() {
+    public Color getStroke() {
         return _stroke;
     }
 
-    public void setStroke(int _stroke) {
+    public void setStroke(Color _stroke) {
         this._stroke = _stroke;
     }
 
