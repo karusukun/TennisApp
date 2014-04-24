@@ -164,9 +164,9 @@ public class DesignGraphic {
          * Update each node's color.
          */
         public static void updateColor(List<DesignGraphic> pList, Color pColor) {
-            for (DesignGraphic n : list) {
+            for (DesignGraphic n : pList) {
                 if (n.isSelected()) {
-                    n.color = color;
+                    n._color = pColor;
                 }
             }
         }
@@ -174,10 +174,10 @@ public class DesignGraphic {
         /**
          * Update each node's kind.
          */
-        public static void updateKind(List<Node> list, Kind kind) {
-            for (Node n : list) {
+        public static void updateKind(List<DesignGraphic> pList, Kind pKind) {
+            for (DesignGraphic n : pList) {
                 if (n.isSelected()) {
-                    n.kind = kind;
+                    n._kind = pKind;
                 }
             }
         } 
