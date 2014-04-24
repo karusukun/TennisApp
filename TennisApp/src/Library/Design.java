@@ -1,6 +1,6 @@
 
 package Library;
-
+import java.awt.Polygon;
 import java.util.*;
 
 /*
@@ -9,11 +9,6 @@ import java.util.*;
  */
 public class Design
 {
-    //Design's attributes
-    private String _name;
-    private List<Figure> _figureList;
-    private int _designId;
-
     //Default builder
     public Design()
     {
@@ -41,6 +36,10 @@ public class Design
         return _figureList;
     }
 
+    public void setFigureList(List<Figure> _figureList) {
+        this._figureList = _figureList;
+    }
+
     public int getDesignId() {
         return _designId;
     }
@@ -48,8 +47,15 @@ public class Design
     public void setDesignId(int _designId) {
         this._designId = _designId;
     }
-    
 
+    public List<Polygon> getPolygonList() {
+        return _polygonList;
+    }
+
+    public void setPolygonList(List<Polygon> _polygonList) {
+        this._polygonList = _polygonList;
+    }
+    
     //Return a specific figure based on the figure's ID
     public Figure getFigure(int pFigureId) {
         int figurePosition = 0;
@@ -65,4 +71,10 @@ public class Design
         Design p = new Design();
         return p;
     }
+    
+    //Design's attributes
+    private String _name;
+    private List<Figure> _figureList;
+    private List<Polygon> _polygonList;
+    private int _designId;
 }

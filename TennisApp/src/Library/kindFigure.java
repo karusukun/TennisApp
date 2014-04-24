@@ -8,6 +8,8 @@ package Library;
 
 public enum kindFigure
 {
+    Sole,
+    DrawPoint,
     SimpleFigure,
     Circle,
     StraightLine,

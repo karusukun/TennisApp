@@ -12,10 +12,7 @@ import java.util.*;
  */
 public final class DesignLogic
 {
-    //DesignLogic's attributes
-    private static DesignLogic _designLogicInstance = null;
-    private List<Design> _DesignList;
-    private Design _ActualDesign;
+    
 
     //Default builder
     private DesignLogic() {
@@ -136,7 +133,14 @@ public final class DesignLogic
     //Do a new line         *****
     private void createLine(int pX1, int pX2, int pY1, int pY2, int pThickness, int pID)
     {
-        StraightLine newLine = new StraightLine(pID, pThickness, pX1, pX2, pY1, pY2);
+        StraightLine newLine = new StraightLine(pX1, pX2, pY1, pY2);
+        newLine.setFigureId(pID);
+        newLine.setStroke_Thickness(pThickness);
         this._ActualDesign.getFigureList().add(newLine); //Add the new line at the figure list in the actual design
     }
+    
+    //DesignLogic's attributes
+    private static DesignLogic _designLogicInstance = null;
+    private List<Design> _DesignList;
+    private Design _ActualDesign;
 }//End DesignLogic Class

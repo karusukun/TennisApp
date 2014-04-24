@@ -4,10 +4,7 @@ import Library.Design;
 import java.util.*;
 
 public class PaintManager {
-        private modePaint _ModeType;
-        private static PaintManager _PainterLogic;
-        private Dictionary<modePaint, DesignDrawnI> _Painters;
-        private List<Design> _designList;
+    
 
     public PaintManager()
     {
@@ -50,4 +47,8 @@ public class PaintManager {
         _ModeType = pMode;
     }
     
+    private modePaint _ModeType;    
+    private static PaintManager _PainterLogic;
+    private Dictionary<modePaint, DesignDrawnI> _Painters;
+    private List<Design> _designList;
 }

@@ -5,10 +5,7 @@ package Library;
  */
 public class Border extends Figure
 {
-    //Border's attributes
-    protected int _x2;
-    protected int _y2;
-
+   
     public int getX2() {
         return _x2;
     }
@@ -23,5 +20,9 @@ public class Border extends Figure
 
     public void setY2(int _y2) {
         this._y2 = _y2;
-    }
+    } 
+    
+    //Border's attributes
+    protected int _x2;
+    protected int _y2;
 }

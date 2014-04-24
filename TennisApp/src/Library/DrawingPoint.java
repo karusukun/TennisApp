@@ -6,21 +6,24 @@ package Library;
  */
 public class DrawingPoint extends Figure
 {
-    //DrawingPoint's attributes
-    private int _drawingPointId;
-
+    
     //Class builder
-    public DrawingPoint(int pDrawingPointId, int pX, int pY) {
-        _drawingPointId = pDrawingPointId;
+    public DrawingPoint(int pDrawingPoint, int pX, int pY) {
+        _drawingPoint = pDrawingPoint;
         _x1 = pX;
         _y1 = pY;
+        _kindFigure = kindFigure.DrawPoint;
     }
 
-    public int getDrawingPointId() {
-        return _drawingPointId;
+    public int getDrawingPoint() {
+        return _drawingPoint;
     }
 
-    public void setDrawingPointId(int _drawingPointId) {
-        this._drawingPointId = _drawingPointId;
-    }   
+    public void setDrawingPoint(int _drawingPoint) {
+        this._drawingPoint = _drawingPoint;
+    } 
+    
+    //DrawingPoint's attributes
+    private int _drawingPoint;
+  
 }
