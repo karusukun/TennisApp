@@ -21,7 +21,6 @@ import javax.swing.*;
  * @author Carlos
  */
 public class MainWindow extends javax.swing.JFrame {
-
     
     //Creates new form MainWindow
         
@@ -42,27 +41,143 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        btn_NewDesign = new javax.swing.JButton();
         Main_canvas = new java.awt.Canvas();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JList_DesignsList = new javax.swing.JList();
+        jPanel_Figures = new javax.swing.JPanel();
+        btn_NewLine = new javax.swing.JButton();
+        btn_NewOrnament = new javax.swing.JButton();
+        jPanel_Properties = new javax.swing.JPanel();
+        slider_thickness = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
+        btn_ChangeColor = new javax.swing.JButton();
+        jPanel_Design = new javax.swing.JPanel();
+        btn_NewDesign = new javax.swing.JButton();
         btn_LoadSelected = new javax.swing.JButton();
-        jToolBar1 = new javax.swing.JToolBar();
+        btn_Edit = new javax.swing.JButton();
+        btn_Arcade = new javax.swing.JButton();
+        btn_Fire = new javax.swing.JButton();
+        canvas_MainCanvas = new java.awt.Canvas();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 153));
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        JList_DesignsList.setBackground(new java.awt.Color(47, 47, 47));
+        JList_DesignsList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Design1" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        JList_DesignsList.setSelectionBackground(new java.awt.Color(204, 102, 0));
+        jScrollPane1.setViewportView(JList_DesignsList);
+
+        jPanel_Figures.setBackground(new java.awt.Color(47, 47, 47));
+
+        btn_NewLine.setText("New Line");
+        btn_NewLine.setFocusable(false);
+        btn_NewLine.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_NewLine.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btn_NewOrnament.setText("New Ornament");
+        btn_NewOrnament.setFocusable(false);
+        btn_NewOrnament.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_NewOrnament.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout jPanel_FiguresLayout = new javax.swing.GroupLayout(jPanel_Figures);
+        jPanel_Figures.setLayout(jPanel_FiguresLayout);
+        jPanel_FiguresLayout.setHorizontalGroup(
+            jPanel_FiguresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_FiguresLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel_FiguresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_NewOrnament, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_NewLine, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
+        );
+        jPanel_FiguresLayout.setVerticalGroup(
+            jPanel_FiguresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_FiguresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_NewLine)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_NewOrnament)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jPanel_Properties.setBackground(new java.awt.Color(47, 47, 47));
+
+        slider_thickness.setMaximum(15);
+        slider_thickness.setMinimum(1);
+        slider_thickness.setPaintLabels(true);
+        slider_thickness.setPaintTicks(true);
+        slider_thickness.setValue(1);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Thickness");
+
+        btn_ChangeColor.setText("Change Color");
+
+        javax.swing.GroupLayout jPanel_PropertiesLayout = new javax.swing.GroupLayout(jPanel_Properties);
+        jPanel_Properties.setLayout(jPanel_PropertiesLayout);
+        jPanel_PropertiesLayout.setHorizontalGroup(
+            jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(slider_thickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(btn_ChangeColor)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel_PropertiesLayout.setVerticalGroup(
+            jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_PropertiesLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(btn_ChangeColor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(slider_thickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        jPanel_Design.setBackground(new java.awt.Color(47, 47, 47));
 
         btn_NewDesign.setText("New Design");
 
         btn_LoadSelected.setText("Load Selected Design");
 
-        jToolBar1.setRollover(true);
+        javax.swing.GroupLayout jPanel_DesignLayout = new javax.swing.GroupLayout(jPanel_Design);
+        jPanel_Design.setLayout(jPanel_DesignLayout);
+        jPanel_DesignLayout.setHorizontalGroup(
+            jPanel_DesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_DesignLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(jPanel_DesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_LoadSelected)
+                    .addComponent(btn_NewDesign, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_DesignLayout.setVerticalGroup(
+            jPanel_DesignLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_DesignLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_NewDesign)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_LoadSelected)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        btn_Edit.setText("Edit");
+
+        btn_Arcade.setText("Arcade");
+
+        btn_Fire.setText("Fire");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,30 +188,40 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_NewDesign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_LoadSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(54, 54, 54)
-                .addComponent(Main_canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jPanel_Properties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel_Figures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel_Design, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(canvas_MainCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(569, Short.MAX_VALUE)
+                .addComponent(btn_Edit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Arcade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Fire)
+                .addGap(307, 307, 307))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Edit)
+                    .addComponent(btn_Arcade)
+                    .addComponent(btn_Fire))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_NewDesign)
+                        .addComponent(jPanel_Design, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_LoadSelected)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(Main_canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addComponent(jPanel_Figures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel_Properties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(canvas_MainCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,34 +255,33 @@ public class MainWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        try 
-        {
-            // select Look and Feel
-            UIManager.setLookAndFeel("com.jtattoo.plaf.smart.SmartLookAndFeel");
-            // start application
-        }
-        catch (Exception ex) 
-        {
-            ex.printStackTrace();
-        }
+        
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                
-                MainWindow mw = new MainWindow();
-                mw.setVisible(true);
+                new MainWindow().setVisible(true);
                 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JList JList_DesignsList;
     private java.awt.Canvas Main_canvas;
-    private javax.swing.JButton btn_LoadSelected;
-    private javax.swing.JButton btn_NewDesign;
-    private javax.swing.JList jList1;
+    public javax.swing.JButton btn_Arcade;
+    public javax.swing.JButton btn_ChangeColor;
+    public javax.swing.JButton btn_Edit;
+    public javax.swing.JButton btn_Fire;
+    public javax.swing.JButton btn_LoadSelected;
+    public javax.swing.JButton btn_NewDesign;
+    public javax.swing.JButton btn_NewLine;
+    public javax.swing.JButton btn_NewOrnament;
+    public java.awt.Canvas canvas_MainCanvas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel_Design;
+    private javax.swing.JPanel jPanel_Figures;
+    private javax.swing.JPanel jPanel_Properties;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToolBar jToolBar1;
+    public javax.swing.JSlider slider_thickness;
     // End of variables declaration//GEN-END:variables
 }
