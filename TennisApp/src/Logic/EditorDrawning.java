@@ -10,9 +10,8 @@ import java.util.List;
 public class EditorDrawning implements DesignDrawnI {
     
      @Override
-    public Graphics paint( Graphics pGraphic){
+    public void paint( Graphics pGraphic){
         drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList(), pGraphic);
-        return pGraphic;
     }
     
     private void drawFigures(List<Figure> vFigures, Graphics grafica){

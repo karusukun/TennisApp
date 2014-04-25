@@ -76,10 +76,10 @@ public class PaintManager {
         return _PainterLogic;
     }
 
-    public Graphics loadDesign(Graphics pG) 
+    public void loadDesign(Graphics pG) 
     {
         DesignDrawnI painter = _Painters.get(_ModeType);
-        return painter.paint(pG);
+        painter.paint(pG);
         
 //this._canvas.paint(painter.paint(pDesign,pG));
         

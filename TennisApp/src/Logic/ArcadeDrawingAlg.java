@@ -8,11 +8,10 @@ import java.util.List;
 public class ArcadeDrawingAlg implements DesignDrawnI  {
     
     @Override
-    public Graphics paint(Graphics pGraphic){
+    public void paint(Graphics pGraphic){
         this.graphic = pGraphic;
         drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
         drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
-        return pGraphic;
     }
     
     private void drawCircle(Circle pCircle){
