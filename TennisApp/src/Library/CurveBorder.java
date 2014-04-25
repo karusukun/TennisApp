@@ -19,10 +19,7 @@ public class CurveBorder extends Border
     
     //Getters and setters of the properties
     
-    @Override
-    public QuadCurve2D getCurve() {
-        return curve;
-    }
+    
 
     public void setCurve(QuadCurve2D curve) {
         this.curve = curve;
@@ -43,7 +40,46 @@ public class CurveBorder extends Border
     public void setCtrlY(int ctrlY) {
         this.ctrlY = ctrlY;
     }
-   
+    
+    @Override
+    public QuadCurve2D getCurve() {
+        return curve;
+    }
+    
+   @Override
+    public int getRadio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setRadio(int _radio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public int getX2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setX2(int _x2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getY2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setY2(int _y2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDrawingPoint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private QuadCurve2D curve;
     private int ctrlX;
     private int ctrlY;

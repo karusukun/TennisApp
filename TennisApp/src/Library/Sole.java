@@ -9,7 +9,6 @@ import java.awt.geom.QuadCurve2D;
 public class Sole extends Figure
 {
     //Sole's attributes
-    private static Sole _soleInstance = null;
     private int _x2;
     private int _y2;
 
@@ -19,19 +18,6 @@ public class Sole extends Figure
         _x1 = _x2 = _y1 = _y2 = 0;
         this._kindFigure = kindFigure.Sole;
         
-    }
-
-    public static Sole getSoleInstance() {
-        
-        if(_soleInstance == null)
-        {
-            _soleInstance = new Sole();
-        }
-        return _soleInstance;
-    }
-
-    public static void setSoleInstance(Sole _soleInstance) {
-        Sole._soleInstance = _soleInstance;
     }
 
     public int getX2() {

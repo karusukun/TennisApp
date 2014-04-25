@@ -28,7 +28,7 @@ public class MiFrame extends JFrame {
         c.setStroke(Color.MAGENTA);
         c.setStroke_Thickness(6);
                 
-        CurveBorder border = new CurveBorder(1,200, 150,80,135,180);
+        CurveBorder border = new CurveBorder(1,200, 150,80,135,180,150);
         border.setColor(Color.RED);
         border.setStroke(Color.ORANGE);
         border.setStroke_Thickness(6);
@@ -39,7 +39,7 @@ public class MiFrame extends JFrame {
         rec.setFill(true);
         rec.setStroke(Color.BLACK);
         
-        DrawingPoint point = new DrawingPoint(10, 300, 200);
+        DrawingPoint point = new DrawingPoint(300, 200);
         point.setColor(Color.BLACK);
         
         StraightBorder pBorder = new StraightBorder(123, 300, 200, 150);
@@ -68,7 +68,7 @@ public class MiFrame extends JFrame {
         //g.fillPolygon(valoresX, valoresY, 4 );
         Design d = new Design();
         d.setFigureList(figList);
-        example.DrawDesign(d);
+        example.DrawDesign(d, g);
     } 
     public static void main(String args[]) { 
         MiFrame mf = new MiFrame(); 

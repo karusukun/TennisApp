@@ -24,13 +24,28 @@ public class Border extends Figure
     public void setY2(int _y2) {
         this._y2 = _y2;
     } 
-    
-    //Border's attributes
-    protected int _x2;
-    protected int _y2;
 
     @Override
     public QuadCurve2D getCurve() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public int getRadio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setRadio(int _radio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDrawingPoint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    //Border's attributes
+    protected int _x2;
+    protected int _y2;
 }
