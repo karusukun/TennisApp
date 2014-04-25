@@ -28,18 +28,16 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
     }
     
+    //Method to draw a curve border
     private void drawCurveBorder(CurveBorder pBorder){
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(pBorder.getColor());
-        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,
-            new float[] { 10, 0 }, 0);
-        int numThickness = pBorder.getStroke_Thickness();
-        while(numThickness!=0){
-            pGrap2.drawArc(pBorder.getX1(), pBorder.getY1(),pBorder.getWidth(),pBorder.getHeight() , pBorder.getStartAngle(), pBorder.getArcAngle1());
-            numThickness--;
-        }
+        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
+        pGrap2.setStroke(stroke);
+        pGrap2.draw(pBorder.getCurve());
     }
     
+    //Method to draw a figure point
     private void drawPoint(DrawingPoint pPoint){
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(pPoint.getColor());
@@ -80,9 +78,28 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     }
     
     private void drawFigures(List<Figure> pfigureList){
-        List<Integer> xValues = new ArrayList<Integer>();
-        List<Integer> yValues = new ArrayList<Integer>();
         int listLong=0;
+        System.out.println("Imprimendo en modo Arcade");
+        //super.paint(grafica);
+
+        Graphics2D g2 = (Graphics2D) graphic;
+        g2.setBackground(Color.white);
+        
+        g2.clearRect(0, 0, 550, 520);
+        int halfPointSize = pfigureList.get(0).getSize()/2;
+
+        int[] puntosX=new int[5];
+        int[] puntosY=new int[5];
+        for (int i=0;i<=4;i++){
+            puntosX[i]=pfigureList.get(i).getX1()+ halfPointSize;
+            puntosY[i]=pfigureList.get(i).getY1()+ halfPointSize;
+        }             
+        
+        g2.setColor(Color.BLUE);
+        g2.drawPolygon(puntosX, puntosY, puntosX.length);
+        g2.fillPolygon(puntosX, puntosY, puntosX.length);
+        g2.fillArc((pfigureList.get(0).getX1()+ halfPointSize)-50, pfigureList.get(0).getY1()+ halfPointSize,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
+        
         while(listLong < pfigureList.size()){
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
             switch(typeFigure){
@@ -94,8 +111,6 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
                 case CurveBorder:
                         CurveBorder border = (CurveBorder) pfigureList.get(listLong);
                         drawCurveBorder(border);
-                        xValues.add(border.getX1());
-                        yValues.add(border.getY1());
                     break;
                  
                 case DrawPoint:
@@ -106,10 +121,6 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
                 case StraightLine:
                         StraightLine line = (StraightLine) pfigureList.get(listLong);
                         drawStraightLine(line);
-                        xValues.add(line.getX1());
-                        yValues.add(line.getY1());
-                        xValues.add(line.getX2());
-                        yValues.add(line.getY2());
                     break;
                     
                 case StraighBorder:
@@ -141,6 +152,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     public void DrawDesign(Design pDesign) {
         drawFillers(pDesign.getPolygonList());
         drawFigures(pDesign.getFigureList());
+        
     }
 
     public Graphics getGraphic() {

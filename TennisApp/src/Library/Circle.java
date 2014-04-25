@@ -1,5 +1,7 @@
 package Library;
 
+import java.awt.geom.QuadCurve2D;
+
 /*
  * Class Circle has the information about the radio
  * of the circle
@@ -22,5 +24,10 @@ public class Circle extends Figure
 
     public void setRadio(int _radio) {
         this._radio = _radio;
+    }
+
+    @Override
+    public QuadCurve2D getCurve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

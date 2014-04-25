@@ -28,10 +28,10 @@ public class MiFrame extends JFrame {
         c.setStroke(Color.MAGENTA);
         c.setStroke_Thickness(6);
                 
-        CurveBorder border = new CurveBorder(200, 150,80);
+        CurveBorder border = new CurveBorder(1,200, 150,80,135,180);
         border.setColor(Color.RED);
         border.setStroke(Color.ORANGE);
-        border.setStroke_Thickness(1);
+        border.setStroke_Thickness(6);
         
         StraightLine rec = new StraightLine(123, 400, 400, 200);
         rec.setColor(Color.GREEN);
@@ -79,10 +79,10 @@ public class MiFrame extends JFrame {
         }); 
     }
 } 
-
+/*
 // Fig. 12.21: DrawPolygons.java
 // Drawing polygons.
-/*
+
 import java.awt.*;
 import javax.swing.*;
 

@@ -1,4 +1,7 @@
 package Library;
+
+import java.awt.geom.QuadCurve2D;
+
     /*
      * It has properties like positions of
      * the sole's points
@@ -40,6 +43,12 @@ public class Sole extends Figure
 
     public void setY2(int _y2) {
         this._y2 = _y2;
+    }
+
+    
+    @Override
+    public QuadCurve2D getCurve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 }

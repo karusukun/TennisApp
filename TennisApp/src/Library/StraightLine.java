@@ -1,4 +1,7 @@
 package Library;
+
+import java.awt.geom.QuadCurve2D;
+
     /*
      * This class has the positions of the vertex 
      * realted at straight lines
@@ -33,4 +36,9 @@ public class StraightLine extends Figure
     //StraightLine's attributes
     private int _x2;
     private int _y2;
+
+    @Override
+    public QuadCurve2D getCurve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

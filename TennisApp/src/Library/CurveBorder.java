@@ -1,52 +1,50 @@
 package Library;
 
+import java.awt.geom.QuadCurve2D;
+
 public class CurveBorder extends Border
 {
-
-    public CurveBorder(int px, int py,int _width) {
-        _x1 = px;
-        _y1 = py;
-        this._width = _width;
-        this.height = _width/2;
-        this._arcAngle1 =  135;
-        this._startAngle = 180;
-        _kindFigure = kindFigure.CurveBorder;
-    }
-
-    public int getWidth() {
-        return _width;
-    }
-
-    public void setWidth(int _width) {
-        this._width = _width;
-    }
-
-    public int getArcAngle1() {
-        return _arcAngle1;
-    }
-
-    public void setArcAngle1(int _arcAngle1) {
-        this._arcAngle1 = _arcAngle1;
-    }
-
-    public int getStartAngle() {
-        return _startAngle;
-    }
-
-    public void setStartAngle(int _startAngle) {
-        this._startAngle = _startAngle;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    //CurveBorder builder
+    public CurveBorder(){
+        this.curve = new QuadCurve2D.Float();
+        this._kindFigure = kindFigure.CurveBorder;
     }
     
-    private int _width;
-    private int height;
-    private int _arcAngle1;
-    private int _startAngle;
+    public CurveBorder(int idFig, int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
+        _figureId = idFig;
+        this.curve = new QuadCurve2D.Float(pX, pY, pCtrlX, pCtrlY, pX2, pY2);
+        _kindFigure = kindFigure.CurveBorder;
+    }
+    
+    
+    //Getters and setters of the properties
+    
+    @Override
+    public QuadCurve2D getCurve() {
+        return curve;
+    }
+
+    public void setCurve(QuadCurve2D curve) {
+        this.curve = curve;
+    }
+
+    public int getCtrlX() {
+        return ctrlX;
+    }
+
+    public void setCtrlX(int ctrlX) {
+        this.ctrlX = ctrlX;
+    }
+
+    public int getCtrlY() {
+        return ctrlY;
+    }
+
+    public void setCtrlY(int ctrlY) {
+        this.ctrlY = ctrlY;
+    }
+   
+    private QuadCurve2D curve;
+    private int ctrlX;
+    private int ctrlY;
 }

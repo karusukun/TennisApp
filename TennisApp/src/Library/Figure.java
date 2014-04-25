@@ -3,12 +3,14 @@ package Library;
     
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import java.awt.Color;
+import java.awt.geom.QuadCurve2D;
+import java.util.ArrayList;
 
     /*
      * This class have the chacacteristics like thickness, color ...
      * of differents figures like circle, lines, points and other figures.
     */
-public class Figure
+public abstract class Figure
 {
     //Figure's attributes
     protected boolean _fill;
@@ -96,5 +98,7 @@ public class Figure
     public void setY1(int _y1) {
         this._y1 = _y1;
     }
+    
+    public abstract QuadCurve2D getCurve();
         
 }
