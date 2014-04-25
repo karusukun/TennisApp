@@ -10,11 +10,12 @@ public class DrawingPoint extends Figure
 {
     
     //Class builder
-    public DrawingPoint(int pX, int pY) {
+    public DrawingPoint(int pX, int pY, PointID pID) {
         _drawingPoint = 15; //radius of the circle
         _x1 = pX;
         _y1 = pY;
         _kindFigure = kindFigure.DrawPoint;
+        _ID = pID;
     }
 
     @Override
@@ -26,6 +27,7 @@ public class DrawingPoint extends Figure
     
     //DrawingPoint's attributes
     private int _drawingPoint;
+    private PointID _ID;
 
     
     @Override
