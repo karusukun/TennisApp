@@ -9,9 +9,10 @@ import java.util.List;
 
 public class FireDrawningAlg implements DesignDrawnI  {
     @Override
-    public Graphics paint(Design pDesign, Graphics pGrapic){
+    public Graphics paint(Graphics pGrapic){
         this.graphic = pGrapic;
-        return drawFigures(pDesign.getFigureList());
+        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
+        return null;
     }
     
     private void drawCircle(Circle pCircle){

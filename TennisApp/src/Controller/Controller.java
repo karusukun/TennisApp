@@ -29,7 +29,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     MainWindow _mainWindow;
     private boolean _lineSelected = false;
     private boolean _circleSelected = false;
-    private boolean _drawingPointSelected = true;
+    private boolean _drawingPointSelected = false;
     
     
     
@@ -40,8 +40,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         setMouseListener(this);
         setMouseMotionListener(this);
         setWindowListener(this);
-        this._mainWindow.setVisible(true);
-        _mainWindow.canvas_mainCanvas.paint();
+        this._mainWindow.setVisible(true);        
     }
     
     

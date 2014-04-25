@@ -7,20 +7,23 @@ import java.awt.geom.QuadCurve2D;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditorDrawning implements DesignDrawnI  {
+public class EditorDrawning implements DesignDrawnI {
     
      @Override
-    public void paint(Design pDesign, Graphics pGrapic){
-        //drawFillers(pDesign.getFigureList(), pGrapic);
-        drawFigures(pDesign.getFigureList(), pGrapic);
+    public Graphics paint( Graphics pGraphic){
+        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList(), pGraphic);
+        return pGraphic;
     }
     
     private void drawFigures(List<Figure> vFigures, Graphics grafica){
         System.out.println("Imprimendo en modo Editor");
         //super.paint(grafica);
-
+        
         Graphics2D g2 = (Graphics2D) grafica;
         g2.setColor(Color.black);
+        
+        g2.setBackground(Color.white);
+        g2.clearRect(0, 0, 550, 520);
         
         for (int figures = 0; figures < vFigures.size(); figures++){
             if (vFigures.get(figures).getKindFigure() == kindFigure.DrawPoint ){
@@ -49,35 +52,6 @@ public class EditorDrawning implements DesignDrawnI  {
         g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX1() + radio, vFigures.get(0).getY1() + radio, 255, 255, vFigures.get(1).getX1() + radio, vFigures.get(1).getY1() + radio));
         g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX1() + radio, vFigures.get(0).getY1() + radio, 10, 200, vFigures.get(4).getX1() + radio, vFigures.get(4).getY1() + radio));
 
-    }
-    
-     private void drawFillers(List<Figure> pfigureList, Graphics graphic){
-        Graphics2D g2 = (Graphics2D) graphic;
-        g2.setBackground(Color.white);
-        
-        g2.clearRect(0, 0, 550, 520);
-        int radioPoint = pfigureList.get(0).getRadio();
-
-        int[] puntosX=new int[5];
-        int[] puntosY=new int[5];
-        for (int i=0;i<=4;i++){
-            puntosX[i]=pfigureList.get(i).getX1() + radioPoint;
-            puntosY[i]=pfigureList.get(i).getY1() + radioPoint;
-        }             
-        
-        g2.setColor(pfigureList.get(0).getColor());
-        g2.drawPolygon(puntosX, puntosY, puntosX.length);
-        g2.fillPolygon(puntosX, puntosY, puntosX.length);
-        g2.fillArc((pfigureList.get(0).getX1()+ radioPoint)-50, pfigureList.get(0).getY1()+ radioPoint,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
-        
-        /*g2.setColor(Color.black);
-        g2.drawLine(pfigureList.get(1).getX1() + radioPoint, pfigureList.get(1).getY1() + radioPoint, pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint);
-        g2.drawLine(pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint, pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint);
-        g2.drawLine(pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint, pfigureList.get(4).getX1() + radioPoint, pfigureList.get(4).getY1() + radioPoint);
-        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 255, 255, vFigures.get(1).getX() + halfPointSize, vFigures.get(1).getY() + halfPointSize));
-        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 10, 200, vFigures.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize));   
-        g2.setColor(Color.white);
-        g2.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); */
     }
      
     
