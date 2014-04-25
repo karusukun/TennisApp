@@ -16,17 +16,19 @@ public final class DesignLogic
 
     //Default builder
     private DesignLogic() {
-        _DesignList = new ArrayList<>();
-        _ActualDesign = new Design();
+        _DesignList = new ArrayList<Design>();
+        _ActualDesign = null;
     }
 
     public static DesignLogic getDesignLogicInstance() {
+        
+        if(_designLogicInstance == null)
+        {
+            _designLogicInstance = new DesignLogic();
+        }
         return _designLogicInstance;
     }
 
-    public static void setDesignLogicInstance(DesignLogic _designLogicInstance) {
-        DesignLogic._designLogicInstance = _designLogicInstance;
-    }
 
     public List<Design> getDesignList() {
         return _DesignList;
@@ -61,21 +63,23 @@ public final class DesignLogic
     }
 
     //Select a specific design as actual design
-    public Design selectActualDesing(int pDesignId)
+    public Design selectActualDesing(String pName)
     {
         int position = 0;
         try
         {
-            while (position < _DesignList.size() &&  pDesignId != _DesignList.get(position).getDesignId())
+            while (position < _DesignList.size() &&  true != pName.equals(_DesignList.get(position).getName()))
             {
                 position++;
             }
+            return _DesignList.get(position);
         }
         catch (Exception e)
         {
             //System.Console.WriteLine(indexException.ToString());
         }
-        return _DesignList.get(position);
+        return null;
+        
     }
 
     //Set the figure's atributtes

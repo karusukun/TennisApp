@@ -45,7 +45,8 @@ public class PaintManager {
             actualDP =_editPoints.get(iteratorPoints);
             if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
             {
-                
+                  DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
+                  loadDesign(null, null);
             }
         }
         
@@ -91,4 +92,5 @@ public class PaintManager {
     private Dictionary<modePaint, DesignDrawnI> _Painters;
     private List<Design> _designList;
     private List<DrawingPoint> _editPoints;
+    private Design pruebas; //PRUEBAS PURPOSE
 }
