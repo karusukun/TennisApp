@@ -9,7 +9,7 @@ public class FireDrawningAlg implements DesignDrawnI  {
     public void AuxiliarPainting() {
         //throw new System.Exception("Not implemented");
     }
-    public void DrawDesign(Design pDesign, Graphics pGrap) {
+    public void paint(Design pDesign, Graphics pGrap) {
         //throw new System.Exception("Not implemented");
     }
 

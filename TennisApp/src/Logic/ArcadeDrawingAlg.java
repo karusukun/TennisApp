@@ -7,6 +7,13 @@ import java.util.List;
 
 public class ArcadeDrawingAlg implements DesignDrawnI  {
     
+    @Override
+    public void paint(Design pDesign, Graphics pGrapic){
+        this.graphic = pGrapic;
+        drawFillers(pDesign.getFigureList());
+        drawFigures(pDesign.getFigureList());
+    }
+    
     private void drawCircle(Circle pCircle){
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(pCircle.getColor());
@@ -94,6 +101,16 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     }
     
     private void drawFigures(List<Figure> pfigureList){
+        Graphics2D g2 = (Graphics2D) graphic;
+        g2.setColor(Color.black);
+        /*g2.drawLine(pfigureList.get(1).getX() + halfPointSize, pfigureList.get(1).getY() + halfPointSize, pfigureList.get(2).getX() + halfPointSize, vFigures.get(2).getY() + halfPointSize);
+        g2.drawLine(pfigureList.get(2).getX() + halfPointSize, pfigureList.get(2).getY() + halfPointSize, pfigureList.get(3).getX() + halfPointSize, vFigures.get(3).getY() + halfPointSize);
+        g2.drawLine(pfigureList.get(3).getX() + halfPointSize, pfigureList.get(3).getY() + halfPointSize, pfigureList.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize);
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 255, 255, vFigures.get(1).getX() + halfPointSize, vFigures.get(1).getY() + halfPointSize));
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 10, 200, vFigures.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize));           
+        g2.setColor(Color.white);
+        g2.fillArc(vFigures.get(0).getX() + halfPointSize, (vFigures.get(0).getY() + halfPointSize)-40,( vFigures.get(1).getX()- vFigures.get(0).getX()),70,180, 180);  */
+        
         int listLong=0;
         while(listLong < pfigureList.size()){
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
@@ -138,18 +155,6 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         this.graphic = graphic;
     }
     
-    public void PaintArcadeMode() {
-        //throw new System.Exception("Not implemented");
-    }
-    public void AuxiliarPainting() {
-        //throw new System.Exception("Not implemented");
-    }
-    public void DrawDesign(Design pDesign, Graphics pGraphic) {
-        this.graphic = pGraphic;
-        drawFillers(pDesign.getFigureList());
-        drawFigures(pDesign.getFigureList());
-    }
-
     public Graphics getGraphic() {
         return graphic;
     }

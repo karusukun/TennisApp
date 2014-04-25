@@ -17,24 +17,49 @@ public class MiFrame extends JFrame {
         setVisible(true); 
     } 
     
-    public void paint(Graphics g) {
-        //g.drawArc(200, 150,80, 80, 180, 135);
+   
+    public static void main(String args[]) { 
+        MiFrame mf = new MiFrame(); 
         
-        ArcadeDrawingAlg example = new ArcadeDrawingAlg(g);
+        ArcadeDrawingAlg example = new ArcadeDrawingAlg();
         List<Figure> figList = new ArrayList();
         
         //Datos de prueba
         
-        CurveBorder cb = new CurveBorder(5,10,100,200,20,10);
-        figList.add(cb);
+        Circle c = new Circle(150,30,50);
+        c.setFill(true);
+        c.setColor(Color.CYAN);
+        c.setStroke(Color.MAGENTA);
+        c.setStroke_Thickness(6);
+                
+        CurveBorder border = new CurveBorder(200, 150,300,130,80,80);
+        border.setColor(Color.RED);
+        border.setStroke(Color.ORANGE);
+        border.setStroke_Thickness(1);
         
+        StraightLine rec = new StraightLine(123, 400, 400, 200);
+        rec.setColor(Color.GREEN);
+        rec.setStroke_Thickness(2);
+        rec.setFill(true);
+        rec.setStroke(Color.BLACK);
+        
+        DrawingPoint point = new DrawingPoint(300, 200, PointID.A);
+        point.setColor(Color.BLACK);
+        
+        StraightBorder pBorder = new StraightBorder(123, 300, 200, 150);
+        pBorder.setStroke_Thickness(2);
+        pBorder.setColor(Color.CYAN);
+        
+        figList.add(c);
+        figList.add(border);
+        figList.add(point);
+        figList.add(rec);
+        figList.add(pBorder);
         
         Design d = new Design();
         d.setFigureList(figList);
-        example.DrawDesign(d, g);
-    } 
-    public static void main(String args[]) { 
-        MiFrame mf = new MiFrame(); 
+        example.paint(d, mf.getGraphics());
+        
 
         mf.addWindowListener( new WindowAdapter() { 
         public void windowClosing( WindowEvent evt ){ 

@@ -10,7 +10,7 @@ public class EditorDrawning implements DesignDrawnI  {
     public void DrawFigure() {
         //throw new System.Exception("Not implemented");
     }
-    public void DrawDesign(Design pDesing, Graphics pGrap) {
+    public void paint(Design pDesing, Graphics pGrap) {
         //throw new System.Exception("Not implemented");
     }
 

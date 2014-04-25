@@ -80,7 +80,7 @@ public class PaintManager {
     public void loadDesign(Design pDesign, Graphics pG) 
     {
         DesignDrawnI painter = _Painters.get(_ModeType);
-        painter.DrawDesign(pDesign, pG);
+        painter.paint(pDesign,pG);
     }
     
 
