@@ -56,7 +56,7 @@ public class MiFrame extends JFrame {
         figList.add(rec);
         figList.add(pBorder);
         
-        Design d = new Design();
+        Design d = new Design("prueba");
         d.setFigureList(figList);
         example.paint(d, mf.getGraphics());
         

@@ -5,6 +5,7 @@ import Library.PointID;
 import Library.modePaint;
 import java.awt.Graphics;
 import java.util.*;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PaintManager {
@@ -15,7 +16,6 @@ public class PaintManager {
         _Painters = new Hashtable<modePaint, DesignDrawnI>();
         _designList = new ArrayList<Design>();
         _editPoints = new ArrayList<DrawingPoint>();
-        pruebas = new Design("prueba");
         _Painters.put(modePaint.Edit, new EditorDrawning());
         _Painters.put(modePaint.Arcade, new ArcadeDrawingAlg());
         _Painters.put(modePaint.Fire, new FireDrawningAlg());
@@ -24,6 +24,7 @@ public class PaintManager {
     
     public void setDrawingPoints()
     {
+        /*
         if(DesignLogic.getDesignLogicInstance().getActualDesign() == null)
         {
             pruebas.getFigureList().add(new DrawingPoint(40,50,PointID.A));
@@ -31,14 +32,14 @@ public class PaintManager {
             pruebas.getFigureList().add(new DrawingPoint(250,100,PointID.C));
             pruebas.getFigureList().add(new DrawingPoint(300,300,PointID.D));
             pruebas.getFigureList().add(new DrawingPoint(40,300,PointID.E));
-        }
+        }*/
         
         
     }
     
     public void MoveEditPoint(int pX,int pY)
     {
-        int diameter = _editPoints.get(0).getRadio()*2;
+        int diameter = 15;
         DrawingPoint actualDP;
         
         for(int iteratorPoints = 0; iteratorPoints < _editPoints.size(); iteratorPoints++)
@@ -47,16 +48,14 @@ public class PaintManager {
             if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
             {
                   DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
-                  setMode(modePaint.Arcade);
-                  loadDesign(pruebas,graphicspruebas);
+             
             }
         }
         
         
-    }
+    }    
     
-   
-
+    
     public void RequestDrawn(Design pDesign) {
     }
 
@@ -88,12 +87,21 @@ public class PaintManager {
     {
         _ModeType = pMode;
     }
+
+    public JPanel getCanvas() {
+        return _canvas;
+    }
+
+    public void setCanvas(JPanel _canvas) {
+        this._canvas = _canvas;
+    }
+    
+    
     
     private modePaint _ModeType;    
     private static PaintManager _PainterLogic;
     private Dictionary<modePaint, DesignDrawnI> _Painters;
     private List<Design> _designList;
     private List<DrawingPoint> _editPoints;
-    private Design pruebas; //PRUEBAS PURPOSE
-    public Graphics graphicspruebas = null; //pruebas purpose 
+    public JPanel _canvas = null;
 }

@@ -6,6 +6,7 @@
 
 package Controller;
 
+import Library.modePaint;
 import Logic.PaintManager;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -38,8 +39,6 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         setMouseMotionListener(this);
         setWindowListener(this);
         this._mainWindow.setVisible(true);
-        
-       
     }
     
     
@@ -82,27 +81,27 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 
     @Override
@@ -115,44 +114,44 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseMoved(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowOpened(WindowEvent we) {
         
-        PaintManager.getInstance().graphicspruebas = _mainWindow.canvas_mainCanvas.getGraphics(); // PRUEBAS BORRAR LUEGO
+       PaintManager.getInstance().setCanvas(_mainWindow.canvas_mainCanvas);
         
     }
 
     @Override
     public void windowClosing(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowClosed(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowIconified(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowDeiconified(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowActivated(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void windowDeactivated(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }
