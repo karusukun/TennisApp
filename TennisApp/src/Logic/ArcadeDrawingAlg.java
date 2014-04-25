@@ -98,18 +98,18 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         g2.drawPolygon(puntosX, puntosY, puntosX.length);
         g2.fillPolygon(puntosX, puntosY, puntosX.length);
         g2.fillArc((pfigureList.get(0).getX1()+ radioPoint)-50, pfigureList.get(0).getY1()+ radioPoint,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
+        
+        /*g2.setColor(Color.black);
+        g2.drawLine(pfigureList.get(1).getX1() + radioPoint, pfigureList.get(1).getY1() + radioPoint, pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint);
+        g2.drawLine(pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint, pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint);
+        g2.drawLine(pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint, pfigureList.get(4).getX1() + radioPoint, pfigureList.get(4).getY1() + radioPoint);
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 255, 255, vFigures.get(1).getX() + halfPointSize, vFigures.get(1).getY() + halfPointSize));
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 10, 200, vFigures.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize));   
+        g2.setColor(Color.white);
+        g2.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); */
     }
     
     private void drawFigures(List<Figure> pfigureList){
-        Graphics2D g2 = (Graphics2D) graphic;
-        g2.setColor(Color.black);
-        /*g2.drawLine(pfigureList.get(1).getX() + halfPointSize, pfigureList.get(1).getY() + halfPointSize, pfigureList.get(2).getX() + halfPointSize, vFigures.get(2).getY() + halfPointSize);
-        g2.drawLine(pfigureList.get(2).getX() + halfPointSize, pfigureList.get(2).getY() + halfPointSize, pfigureList.get(3).getX() + halfPointSize, vFigures.get(3).getY() + halfPointSize);
-        g2.drawLine(pfigureList.get(3).getX() + halfPointSize, pfigureList.get(3).getY() + halfPointSize, pfigureList.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize);
-        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 255, 255, vFigures.get(1).getX() + halfPointSize, vFigures.get(1).getY() + halfPointSize));
-        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 10, 200, vFigures.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize));           
-        g2.setColor(Color.white);
-        g2.fillArc(vFigures.get(0).getX() + halfPointSize, (vFigures.get(0).getY() + halfPointSize)-40,( vFigures.get(1).getX()- vFigures.get(0).getX()),70,180, 180);  */
         
         int listLong=0;
         while(listLong < pfigureList.size()){
@@ -145,6 +145,16 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
             }
             listLong++;
         }
+        Graphics2D g2 = (Graphics2D) graphic;
+        int radioPoint = pfigureList.get(0).getRadio();
+        g2.setColor(Color.black);
+        g2.drawLine(pfigureList.get(1).getX1() + radioPoint, pfigureList.get(1).getY1() + radioPoint, pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint);
+        g2.drawLine(pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint, pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint);
+        g2.drawLine(pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint, pfigureList.get(4).getX1() + radioPoint, pfigureList.get(4).getY1() + radioPoint);
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 255, 255, vFigures.get(1).getX() + halfPointSize, vFigures.get(1).getY() + halfPointSize));
+        //g2.draw(new QuadCurve2D.Float(vFigures.get(0).getX() + halfPointSize, vFigures.get(0).getY() + halfPointSize, 10, 200, vFigures.get(4).getX() + halfPointSize, vFigures.get(4).getY() + halfPointSize));   
+        g2.setColor(Color.white);
+        g2.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); 
     }
     
     public ArcadeDrawingAlg() {

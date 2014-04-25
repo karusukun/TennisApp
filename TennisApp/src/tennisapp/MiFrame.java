@@ -1,12 +1,12 @@
 package tennisApp;
 import Library.*;
 import Logic.ArcadeDrawingAlg;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.*; 
+import Logic.PaintManager; 
 import java.awt.*; 
 import java.awt.event.*; 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.*;
 
 public class MiFrame extends JFrame { 
  
@@ -17,11 +17,9 @@ public class MiFrame extends JFrame {
         setVisible(true); 
     } 
     
-   
-    public static void main(String args[]) { 
-        MiFrame mf = new MiFrame(); 
-        
-        ArcadeDrawingAlg example = new ArcadeDrawingAlg();
+     
+    @Override
+    public void paint(Graphics pGrapic){
         List<Figure> figList = new ArrayList();
         
         //Datos de prueba
@@ -44,7 +42,6 @@ public class MiFrame extends JFrame {
         rec.setStroke(Color.BLACK);
         
         DrawingPoint point = new DrawingPoint(300, 200, PointID.A);
-        point.setColor(Color.BLACK);
         
         StraightBorder pBorder = new StraightBorder(123, 300, 200, 150);
         pBorder.setStroke_Thickness(2);
@@ -56,9 +53,52 @@ public class MiFrame extends JFrame {
         figList.add(rec);
         figList.add(pBorder);
         
-        Design d = new Design("prueba");
+        Design d = new Design("Prueba");
         d.setFigureList(figList);
-        example.paint(d, mf.getGraphics());
+        pGrapic.drawLine(230,123,455,200);
+        PaintManager.getInstance().setMode(modePaint.Edit);
+        PaintManager.getInstance().loadDesign(d, pGrapic);
+    }
+    public static void main(String args[]) { 
+        MiFrame mf = new MiFrame(); 
+        
+        List<Figure> figList = new ArrayList();
+        
+        //Datos de prueba
+        
+        Circle c = new Circle(150,30,50);
+        c.setFill(true);
+        c.setColor(Color.CYAN);
+        c.setStroke(Color.MAGENTA);
+        c.setStroke_Thickness(6);
+                
+        CurveBorder border = new CurveBorder(200, 150,300,130,80,80);
+        border.setColor(Color.RED);
+        border.setStroke(Color.ORANGE);
+        border.setStroke_Thickness(1);
+        
+        StraightLine rec = new StraightLine(123, 400, 400, 200);
+        rec.setColor(Color.GREEN);
+        rec.setStroke_Thickness(2);
+        rec.setFill(true);
+        rec.setStroke(Color.BLACK);
+        
+        DrawingPoint point = new DrawingPoint(300, 200, PointID.A);
+        
+        StraightBorder pBorder = new StraightBorder(123, 300, 200, 150);
+        pBorder.setStroke_Thickness(2);
+        pBorder.setColor(Color.CYAN);
+        
+        figList.add(c);
+        figList.add(border);
+        figList.add(point);
+        figList.add(rec);
+        figList.add(pBorder);
+        
+        Design d = new Design("Prueba");
+        
+        //PaintManager.getInstance().setMode(modePaint.Arcade);
+        //PaintManager.getInstance().loadDesign(d, mf.getGraphics());
         
 
         mf.addWindowListener( new WindowAdapter() { 
