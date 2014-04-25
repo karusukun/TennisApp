@@ -10,19 +10,13 @@ import java.util.*;
 public class Design
 {
     //Default builder
-    public Design()
-    {
-        _name = "";
-        _figureList = new ArrayList<>();
-        _designId = _id;
-        _id++;
-    }
 
     //Instance of Design builder
-    public Design(String pName, List<Figure> pFigureList, int pDesignId) {
+    public Design(String pName) {
         _name = pName;
-        _figureList = pFigureList;
-        _designId = pDesignId;
+        _figureList = new ArrayList<Figure>();
+        _designId = _id;
+        _id++;
     }
 
     public String getName() {
@@ -69,7 +63,7 @@ public class Design
 
     //I've to ask what's the function of this ****
     private Design getDesign(String pName) {
-        Design p = new Design();
+        Design p = new Design(pName);
         return p;
     }
     

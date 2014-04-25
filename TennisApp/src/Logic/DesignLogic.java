@@ -130,7 +130,7 @@ public final class DesignLogic
     //Create a new design 
     private void createDesign(String pName)
     {
-        Design newDesign = new Design(pName, null, 0); //Create the new design with the name
+        Design newDesign = new Design(pName); //Create the new design with the name
         _DesignList.add(newDesign); //Add the new design at the design list
     }
 

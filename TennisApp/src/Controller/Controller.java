@@ -6,6 +6,7 @@
 
 package Controller;
 
+import Logic.PaintManager;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -55,12 +56,12 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     }  
     
     public void setMouseListener(MouseListener listener){
-        _mainWindow.canvas_MainCanvas.addMouseListener(listener);
+        _mainWindow.canvas_mainCanvas.addMouseListener(listener);
         
     }
     
     public void setMouseMotionListener(MouseMotionListener listener){
-        _mainWindow.canvas_MainCanvas.addMouseMotionListener(listener);
+        _mainWindow.canvas_mainCanvas.addMouseMotionListener(listener);
     }
 
     public void setWindowListener(WindowListener listener){
@@ -106,6 +107,9 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseDragged(MouseEvent me) {
+        if (_drawingPointSelected){
+            PaintManager.getInstance().MoveEditPoint(me.getX(),me.getY());
+        }
         
     }
 
@@ -116,7 +120,9 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void windowOpened(WindowEvent we) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        PaintManager.getInstance().graphicspruebas = _mainWindow.canvas_mainCanvas.getGraphics(); // PRUEBAS BORRAR LUEGO
+        
     }
 
     @Override

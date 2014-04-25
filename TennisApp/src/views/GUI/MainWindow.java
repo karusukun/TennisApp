@@ -57,7 +57,7 @@ public class MainWindow extends javax.swing.JFrame {
         btn_Edit = new javax.swing.JButton();
         btn_Arcade = new javax.swing.JButton();
         btn_Fire = new javax.swing.JButton();
-        canvas_MainCanvas = new java.awt.Canvas();
+        canvas_mainCanvas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
@@ -179,6 +179,19 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_Fire.setText("Fire");
 
+        canvas_mainCanvas.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout canvas_mainCanvasLayout = new javax.swing.GroupLayout(canvas_mainCanvas);
+        canvas_mainCanvas.setLayout(canvas_mainCanvasLayout);
+        canvas_mainCanvasLayout.setHorizontalGroup(
+            canvas_mainCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        canvas_mainCanvasLayout.setVerticalGroup(
+            canvas_mainCanvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 401, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,8 +204,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jPanel_Properties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel_Figures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel_Design, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addComponent(canvas_MainCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(canvas_mainCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(569, Short.MAX_VALUE)
@@ -212,7 +225,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(btn_Arcade)
                     .addComponent(btn_Fire))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel_Design, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -220,8 +233,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel_Properties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(canvas_MainCanvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(canvas_mainCanvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -276,7 +289,7 @@ public class MainWindow extends javax.swing.JFrame {
     public javax.swing.JButton btn_NewDesign;
     public javax.swing.JButton btn_NewLine;
     public javax.swing.JButton btn_NewOrnament;
-    public java.awt.Canvas canvas_MainCanvas;
+    public javax.swing.JPanel canvas_mainCanvas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel_Design;
     private javax.swing.JPanel jPanel_Figures;

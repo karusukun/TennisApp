@@ -15,6 +15,7 @@ public class PaintManager {
         _Painters = new Hashtable<modePaint, DesignDrawnI>();
         _designList = new ArrayList<Design>();
         _editPoints = new ArrayList<DrawingPoint>();
+        pruebas = new Design("prueba");
         _Painters.put(modePaint.Edit, new EditorDrawning());
         _Painters.put(modePaint.Arcade, new ArcadeDrawingAlg());
         _Painters.put(modePaint.Fire, new FireDrawningAlg());
@@ -25,11 +26,11 @@ public class PaintManager {
     {
         if(DesignLogic.getDesignLogicInstance().getActualDesign() == null)
         {
-            _editPoints.add(new DrawingPoint(40,50,PointID.A));
-            _editPoints.add(new DrawingPoint(200,50,PointID.B));
-            _editPoints.add(new DrawingPoint(250,100,PointID.C));
-            _editPoints.add(new DrawingPoint(300,300,PointID.D));
-            _editPoints.add(new DrawingPoint(40,300,PointID.E));
+            pruebas.getFigureList().add(new DrawingPoint(40,50,PointID.A));
+            pruebas.getFigureList().add(new DrawingPoint(200,50,PointID.B));
+            pruebas.getFigureList().add(new DrawingPoint(250,100,PointID.C));
+            pruebas.getFigureList().add(new DrawingPoint(300,300,PointID.D));
+            pruebas.getFigureList().add(new DrawingPoint(40,300,PointID.E));
         }
         
         
@@ -46,7 +47,8 @@ public class PaintManager {
             if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
             {
                   DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
-                  loadDesign(null, null);
+                  setMode(modePaint.Arcade);
+                  loadDesign(pruebas,graphicspruebas);
             }
         }
         
@@ -93,4 +95,5 @@ public class PaintManager {
     private List<Design> _designList;
     private List<DrawingPoint> _editPoints;
     private Design pruebas; //PRUEBAS PURPOSE
+    public Graphics graphicspruebas = null; //pruebas purpose 
 }
