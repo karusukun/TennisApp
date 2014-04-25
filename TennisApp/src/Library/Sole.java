@@ -15,13 +15,18 @@ public class Sole extends Figure
 
     //Default builder
     private  Sole() {
-        _x1 = 0;
-        _x2 = 0;
-        _y1 = 0;
-        _y2 = 0;
+        
+        _x1 = _x2 = _y1 = _y2 = 0;
+        this._kindFigure = kindFigure.Sole;
+        
     }
 
     public static Sole getSoleInstance() {
+        
+        if(_soleInstance == null)
+        {
+            _soleInstance = new Sole();
+        }
         return _soleInstance;
     }
 
@@ -48,6 +53,21 @@ public class Sole extends Figure
     
     @Override
     public QuadCurve2D getCurve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getRadio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setRadio(int _radio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDrawingPoint() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         

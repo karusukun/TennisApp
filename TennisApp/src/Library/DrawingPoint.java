@@ -10,20 +10,19 @@ public class DrawingPoint extends Figure
 {
     
     //Class builder
-    public DrawingPoint(int pDrawingPoint, int pX, int pY) {
-        _drawingPoint = pDrawingPoint;
+    public DrawingPoint(int pX, int pY) {
+        _drawingPoint = 15; //radius of the circle
         _x1 = pX;
         _y1 = pY;
         _kindFigure = kindFigure.DrawPoint;
     }
 
+    @Override
     public int getDrawingPoint() {
         return _drawingPoint;
     }
 
-    public void setDrawingPoint(int _drawingPoint) {
-        this._drawingPoint = _drawingPoint;
-    } 
+   
     
     //DrawingPoint's attributes
     private int _drawingPoint;
@@ -31,6 +30,36 @@ public class DrawingPoint extends Figure
     
     @Override
     public QuadCurve2D getCurve() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getX2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setX2(int _x2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getY2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setY2(int _y2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getRadio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setRadio(int _radio) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
   

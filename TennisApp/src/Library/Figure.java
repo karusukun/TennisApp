@@ -100,5 +100,12 @@ public abstract class Figure
     }
     
     public abstract QuadCurve2D getCurve();
+    public abstract int getX2();
+    public abstract void setX2(int _x2);
+    public abstract int getY2();
+    public abstract void setY2(int _y2);
+    public abstract int getRadio();
+    public abstract void setRadio(int _radio);
+    public abstract int getDrawingPoint();
         
 }
