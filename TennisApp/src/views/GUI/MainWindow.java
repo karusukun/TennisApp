@@ -43,7 +43,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         Main_canvas = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JList_DesignsList = new javax.swing.JList();
+        jList_DesignList = new javax.swing.JList();
         jPanel_Figures = new javax.swing.JPanel();
         btn_NewLine = new javax.swing.JButton();
         btn_NewOrnament = new javax.swing.JButton();
@@ -62,14 +62,10 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 153, 153));
 
-        JList_DesignsList.setBackground(new java.awt.Color(47, 47, 47));
-        JList_DesignsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Design1" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        JList_DesignsList.setSelectionBackground(new java.awt.Color(204, 102, 0));
-        jScrollPane1.setViewportView(JList_DesignsList);
+        jList_DesignList.setBackground(new java.awt.Color(47, 47, 47));
+        jList_DesignList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jList_DesignList.setForeground(new java.awt.Color(255, 255, 204));
+        jScrollPane1.setViewportView(jList_DesignList);
 
         jPanel_Figures.setBackground(new java.awt.Color(47, 47, 47));
 
@@ -198,7 +194,7 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel_Properties, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -232,8 +228,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jPanel_Figures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel_Properties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(canvas_mainCanvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(canvas_mainCanvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -279,7 +275,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JList JList_DesignsList;
     private java.awt.Canvas Main_canvas;
     public javax.swing.JButton btn_Arcade;
     public javax.swing.JButton btn_ChangeColor;
@@ -291,6 +286,7 @@ public class MainWindow extends javax.swing.JFrame {
     public javax.swing.JButton btn_NewOrnament;
     public javax.swing.JPanel canvas_mainCanvas;
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JList jList_DesignList;
     private javax.swing.JPanel jPanel_Design;
     private javax.swing.JPanel jPanel_Figures;
     private javax.swing.JPanel jPanel_Properties;

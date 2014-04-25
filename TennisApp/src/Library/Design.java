@@ -18,10 +18,16 @@ public class Design
         _designId = _id;
         _id++;
     }
+    
+    public void addFigure(Figure pFigure)
+    {
+        _figureList.add(pFigure);
+    }
 
     public String getName() {
         return _name;
     }
+    
 
     public void setName(String _name) {
         this._name = _name;

@@ -7,6 +7,7 @@
 package Controller;
 
 import Library.modePaint;
+import Logic.DesignLogic;
 import Logic.PaintManager;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -17,6 +18,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 import views.GUI.MainWindow;
 
 /**
@@ -29,7 +31,8 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     MainWindow _mainWindow;
     private boolean _lineSelected = false;
     private boolean _circleSelected = false;
-    private boolean _drawingPointSelected = false;
+    private boolean _drawingPointSelection = true;
+    private boolean _mousePressed = false;
     
     
     
@@ -72,9 +75,31 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     
     @Override
     public void actionPerformed(ActionEvent ae) {
+        
+        
         if(ae.getSource() == _mainWindow.btn_ChangeColor)
         {
             JColorChooser.showDialog(_mainWindow, "Select Color", Color.black);            
+        } else if (ae.getSource() == _mainWindow.btn_Arcade)
+        {
+            PaintManager.getInstance().setMode(modePaint.Arcade);
+        } else if(ae.getSource() == _mainWindow.btn_Edit)
+        {
+            PaintManager.getInstance().setMode(modePaint.Edit);
+        } else if(ae.getSource() == _mainWindow.btn_Fire)
+        {
+            PaintManager.getInstance().setMode(modePaint.Fire);
+        } else if(ae.getSource() == _mainWindow.btn_LoadSelected)
+        {
+            System.out.println(_mainWindow.jList_DesignList.getSelectedValue().toString());
+            //DesignLogic.getDesignLogicInstance().selectActualDesing(_mainWindow.JList_DesignsList.getName());
+        } else if(ae.getSource() == _mainWindow.btn_NewDesign)
+        {
+            String pName = JOptionPane.showInputDialog("Input Design Name");
+            DesignLogic.getDesignLogicInstance().newDesign(pName);
+            _mainWindow.jList_DesignList.setModel(DesignLogic.getDesignLogicInstance().designNames());
+            PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
+            
         }
             
         
@@ -88,12 +113,12 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mousePressed(MouseEvent me) {
-        
+        _mousePressed = true;
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        
+        _mousePressed = false;
     }
 
     @Override
@@ -108,8 +133,8 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseDragged(MouseEvent me) {
-        if (_drawingPointSelected){
-            PaintManager.getInstance().MoveEditPoint(me.getX(),me.getY());
+        if (_drawingPointSelection && _mousePressed){
+            PaintManager.getInstance().MoveEditPoint(me.getX(),me.getY());            
         }
         
     }
@@ -123,6 +148,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     public void windowOpened(WindowEvent we) {
         
        PaintManager.getInstance().setCanvas(_mainWindow.canvas_mainCanvas);
+       PaintManager.getInstance().setMode(modePaint.Edit);
         
     }
 

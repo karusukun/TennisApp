@@ -1,10 +1,13 @@
 package Logic;
 import Library.Design;
+import Library.DrawingPoint;
 import Library.Figure;
+import Library.PointID;
 import Library.StraightLine;
 import java.awt.Color;
  import java.io.*;
 import java.util.*;
+import javax.swing.DefaultListModel;
 
 /*
  * This class works on the designs
@@ -63,6 +66,29 @@ public final class DesignLogic
     }
 
     //Select a specific design as actual design
+    public void newDesign(String pName)
+    {
+        Design pDesign = new Design(pName);
+        pDesign.addFigure(new DrawingPoint(60, 130, PointID.A));
+        pDesign.addFigure(new DrawingPoint(230, 130, PointID.B));
+        pDesign.addFigure(new DrawingPoint(250, 170, PointID.C));
+        pDesign.addFigure(new DrawingPoint(300, 230, PointID.D));
+        pDesign.addFigure(new DrawingPoint(65, 230, PointID.E));
+        this._DesignList.add(pDesign);
+        setActualDesign(selectActualDesing(pName));
+        System.out.println(_ActualDesign.getName());
+    }
+    
+    public DefaultListModel<String> designNames()
+    {
+        DefaultListModel<String> nameList = new DefaultListModel<>();
+        for(Design iterator : _DesignList)
+        {
+            nameList.addElement(iterator.getName());
+        }
+        return nameList;
+    }
+    
     public Design selectActualDesing(String pName)
     {
         int position = 0;
