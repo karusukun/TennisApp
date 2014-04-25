@@ -73,7 +73,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.drawLine(pBorder.getX1(), pBorder.getY1(), pBorder.getX2(), pBorder.getY2());
     }
     
-    private void drawFillers(List<Polygon> pPolygonList){
+    private void drawFillers(){
         
     }
     

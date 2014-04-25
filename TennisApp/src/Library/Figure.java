@@ -22,10 +22,12 @@ public abstract class Figure
     protected int _x1;
     protected int _y1;
     protected kindFigure _kindFigure;
+    protected static int _id =0;
 
     //Builder
     public Figure() { 
-        _figureId = 0; 
+        _figureId = _id; 
+        _id++;
         _x1 = 0;
         _y1 = 0;
         stroke_Thickness = 0;
@@ -33,6 +35,7 @@ public abstract class Figure
         _color = null;
         _stroke = null;
         _kindFigure = kindFigure.SimpleFigure;
+        
     }
 
     public kindFigure getKindFigure() {

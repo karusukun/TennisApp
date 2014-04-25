@@ -10,8 +10,7 @@ public class CurveBorder extends Border
         this._kindFigure = kindFigure.CurveBorder;
     }
     
-    public CurveBorder(int idFig, int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
-        _figureId = idFig;
+    public CurveBorder(int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
         this.curve = new QuadCurve2D.Float(pX, pY, pCtrlX, pCtrlY, pX2, pY2);
         _kindFigure = kindFigure.CurveBorder;
     }
