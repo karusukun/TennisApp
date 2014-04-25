@@ -31,6 +31,8 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     private boolean _circleSelected = false;
     private boolean _drawingPointSelected = true;
     
+    
+    
     public Controller(MainWindow pWindow)
     {
         this._mainWindow = pWindow;
@@ -39,6 +41,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         setMouseMotionListener(this);
         setWindowListener(this);
         this._mainWindow.setVisible(true);
+        _mainWindow.canvas_mainCanvas.paint();
     }
     
     

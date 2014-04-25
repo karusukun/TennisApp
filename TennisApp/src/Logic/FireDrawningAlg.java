@@ -9,10 +9,9 @@ import java.util.List;
 
 public class FireDrawningAlg implements DesignDrawnI  {
     @Override
-    public void paint(Design pDesign, Graphics pGrapic){
+    public Graphics paint(Design pDesign, Graphics pGrapic){
         this.graphic = pGrapic;
-        drawFillers(pDesign.getFigureList());
-        drawFigures(pDesign.getFigureList());
+        return drawFigures(pDesign.getFigureList());
     }
     
     private void drawCircle(Circle pCircle){
@@ -93,8 +92,8 @@ public class FireDrawningAlg implements DesignDrawnI  {
         g2.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); 
     }
     
-    private void drawFigures(List<Figure> pfigureList){
-        
+    private Graphics drawFigures(List<Figure> pfigureList){
+        drawFillers(pfigureList);
         int listLong=0;
         while(listLong < pfigureList.size()){
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
@@ -129,6 +128,7 @@ public class FireDrawningAlg implements DesignDrawnI  {
             }
             listLong++;
         }
+        return graphic;
     }
     
     public FireDrawningAlg() {

@@ -79,7 +79,8 @@ public class PaintManager {
     public void loadDesign(Design pDesign, Graphics pG) 
     {
         DesignDrawnI painter = _Painters.get(_ModeType);
-        painter.paint(pDesign,pG);
+        this._canvas.paint(painter.paint(pDesign,pG));
+        
     }
     
 
