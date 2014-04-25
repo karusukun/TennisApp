@@ -1,5 +1,6 @@
 package Logic;
 import Library.Design;
+import java.awt.Graphics;
 
 public class FireDrawningAlg implements DesignDrawnI  {
     public void PaintFireMode() {
@@ -8,7 +9,7 @@ public class FireDrawningAlg implements DesignDrawnI  {
     public void AuxiliarPainting() {
         //throw new System.Exception("Not implemented");
     }
-    public void DrawDesign(Design pDesign) {
+    public void DrawDesign(Design pDesign, Graphics pGrap) {
         //throw new System.Exception("Not implemented");
     }
 

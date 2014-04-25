@@ -1,6 +1,7 @@
 package Logic;
 import Library.Design;
 import Library.modePaint;
+import java.awt.Graphics;
 import java.util.*;
 import javax.swing.JPanel;
 
@@ -36,20 +37,16 @@ public class PaintManager {
         return _PainterLogic;
     }
 
-    public void loadDesign(Design pDesign) 
+    public void loadDesign(Design pDesign, Graphics pG) 
     {
         DesignDrawnI painter = _Painters.get(_ModeType);
-        painter.DrawDesign(pDesign, _panelPaint.getGraphics());
+        painter.DrawDesign(pDesign, pG);
     }
     
 
     public void setMode(modePaint pMode)
     {
         _ModeType = pMode;
-    }
-
-    public void setPanelPaint(JPanel _panelPaint) {
-        this._panelPaint = _panelPaint;
     }
     
     private modePaint _ModeType;    

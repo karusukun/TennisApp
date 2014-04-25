@@ -86,19 +86,19 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         g2.setBackground(Color.white);
         
         g2.clearRect(0, 0, 550, 520);
-        int halfPointSize = pfigureList.get(0).getSize()/2;
+        //int halfPointSize = pfigureList.get(0).getSize()/2;
 
         int[] puntosX=new int[5];
         int[] puntosY=new int[5];
         for (int i=0;i<=4;i++){
-            puntosX[i]=pfigureList.get(i).getX1()+ halfPointSize;
-            puntosY[i]=pfigureList.get(i).getY1()+ halfPointSize;
+            puntosX[i]=pfigureList.get(i).getX1();//+ halfPointSize;
+            puntosY[i]=pfigureList.get(i).getY1();//+ halfPointSize;
         }             
         
         g2.setColor(Color.BLUE);
         g2.drawPolygon(puntosX, puntosY, puntosX.length);
         g2.fillPolygon(puntosX, puntosY, puntosX.length);
-        g2.fillArc((pfigureList.get(0).getX1()+ halfPointSize)-50, pfigureList.get(0).getY1()+ halfPointSize,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
+        g2.fillArc((pfigureList.get(0).getX1()/*+ halfPointSize*/)-50, pfigureList.get(0).getY1()/*+ halfPointSize*/,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
         
         while(listLong < pfigureList.size()){
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
@@ -149,10 +149,10 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     public void AuxiliarPainting() {
         //throw new System.Exception("Not implemented");
     }
-    public void DrawDesign(Design pDesign) {
+    public void DrawDesign(Design pDesign, Graphics pGraphic) {
+        this.graphic = pGraphic;
         drawFillers(pDesign.getPolygonList());
         drawFigures(pDesign.getFigureList());
-        
     }
 
     public Graphics getGraphic() {
