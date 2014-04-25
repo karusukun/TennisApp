@@ -32,7 +32,7 @@ public abstract class Figure
         _y1 = 0;
         stroke_Thickness = 0;
         _fill = false;
-        _color = null;
+        _color = new Color(0,0,0);
         _stroke = null;
         _kindFigure = kindFigure.SimpleFigure;
         

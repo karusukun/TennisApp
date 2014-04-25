@@ -25,8 +25,8 @@ public class MiFrame extends JFrame {
         
         //Datos de prueba
         
-        CurveBorder cb = new CurveBorder(5,10,);
-        
+        CurveBorder cb = new CurveBorder(5,10,100,200,20,10);
+        figList.add(cb);
         
         
         Design d = new Design();

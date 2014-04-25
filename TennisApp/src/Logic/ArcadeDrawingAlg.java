@@ -74,32 +74,27 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     }
     
     private void drawFillers(List<Figure> pfigureList){
-        
-    }
-    
-    private void drawFigures(List<Figure> pfigureList){
-        int listLong=0;
-        System.out.println("Imprimendo en modo Arcade");
-        //super.paint(grafica);
-
         Graphics2D g2 = (Graphics2D) graphic;
         g2.setBackground(Color.white);
         
         g2.clearRect(0, 0, 550, 520);
-        //int halfPointSize = pfigureList.get(0).getSize()/2;
+        int radioPoint = pfigureList.get(0).getRadio();
 
         int[] puntosX=new int[5];
         int[] puntosY=new int[5];
         for (int i=0;i<=4;i++){
-            puntosX[i]=pfigureList.get(i).getX1();//+ halfPointSize;
-            puntosY[i]=pfigureList.get(i).getY1();//+ halfPointSize;
+            puntosX[i]=pfigureList.get(i).getX1() + radioPoint;
+            puntosY[i]=pfigureList.get(i).getY1() + radioPoint;
         }             
         
-        g2.setColor(Color.BLUE);
+        g2.setColor(pfigureList.get(0).getColor());
         g2.drawPolygon(puntosX, puntosY, puntosX.length);
         g2.fillPolygon(puntosX, puntosY, puntosX.length);
-        g2.fillArc((pfigureList.get(0).getX1()/*+ halfPointSize*/)-50, pfigureList.get(0).getY1()/*+ halfPointSize*/,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
-        
+        g2.fillArc((pfigureList.get(0).getX1()+ radioPoint)-50, pfigureList.get(0).getY1()+ radioPoint,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
+    }
+    
+    private void drawFigures(List<Figure> pfigureList){
+        int listLong=0;
         while(listLong < pfigureList.size()){
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
             switch(typeFigure){

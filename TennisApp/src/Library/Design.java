@@ -14,7 +14,8 @@ public class Design
     {
         _name = "";
         _figureList = new ArrayList<>();
-        _designId = 0;
+        _designId = _id;
+        _id++;
     }
 
     //Instance of Design builder
@@ -77,4 +78,5 @@ public class Design
     private List<Figure> _figureList;
     private List<Polygon> _polygonList;
     private int _designId;
+    private static int _id=0;
 }
