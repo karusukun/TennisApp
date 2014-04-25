@@ -27,7 +27,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     MainWindow _mainWindow;
     private boolean _lineSelected = false;
     private boolean _circleSelected = false;
-    private boolean _drawingPointSelected = false;
+    private boolean _drawingPointSelected = true;
     
     public Controller(MainWindow pWindow)
     {
@@ -106,7 +106,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseDragged(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
