@@ -1,9 +1,6 @@
 package Logic;
-import Library.Design;
-import Library.DrawingPoint;
-import Library.Figure;
-import Library.PointID;
-import Library.modePaint;
+import Library.*;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.*;
 import javax.swing.JFrame;
@@ -49,6 +46,29 @@ public class PaintManager {
             
             }
         }
+    }
+    
+    public void NewLine(int pX1, int pX2, int pY1, int pY2, Color pColor, int pStroke)
+    {
+        StraightLine newLine = new StraightLine(pX1,pX2,pY1,pY2);
+        newLine.setColor(pColor);
+        newLine.setStroke(pColor);
+        newLine.setStroke_Thickness(pStroke);
+        
+        DesignLogic.getDesignLogicInstance().getActualDesign().addFigure(newLine);
+        loadDesign(_canvas.getGraphics());
+    
+    }
+    
+    public void newCircle(int pRadio, int pX, int pY, Color pColor, int pStroke)
+    {
+        Circle newCircle = new Circle(pRadio,pX,pY);
+        newCircle.setColor(pColor);
+        newCircle.setStroke(pColor);
+        newCircle.setStroke_Thickness(pStroke);
+        
+        DesignLogic.getDesignLogicInstance().getActualDesign().addFigure(newCircle);
+        loadDesign(this._canvas.getGraphics());
     }
         
         

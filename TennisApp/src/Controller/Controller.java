@@ -29,6 +29,12 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     
     MainWindow _mainWindow;
+    
+    private int _firstX = 0;
+    private int _firstY = 0;
+    private int _strokeThickness = 1;
+    private Color _color =Color.BLACK;
+    private boolean _Fill=false;
     private boolean _lineSelected = false;
     private boolean _circleSelected = false;
     private boolean _drawingPointSelection = true;
@@ -78,7 +84,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         
         if(ae.getSource() == _mainWindow.btn_ChangeColor)
         {
-            JColorChooser.showDialog(_mainWindow, "Select Color", Color.black);            
+            _color = JColorChooser.showDialog(_mainWindow, "Select a Color", Color.black);            
         } else if (ae.getSource() == _mainWindow.btn_Arcade)
         {
             PaintManager.getInstance().setMode(modePaint.Arcade);
@@ -102,6 +108,14 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
             _mainWindow.jList_DesignList.setModel(DesignLogic.getDesignLogicInstance().designNames());
             PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
             
+        } else if(ae.getSource() == _mainWindow.btn_NewLine)
+        {
+            this._lineSelected = true;
+            this._circleSelected = this._drawingPointSelection = false;
+        } else if(ae.getSource() == _mainWindow.btn_NewOrnament)
+        {
+            this._circleSelected = true;
+            this._lineSelected = _drawingPointSelection = false;
         }
             
         
@@ -115,10 +129,28 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mousePressed(MouseEvent me) {
+        
+        if(_circleSelected || _lineSelected)
+        {
+            _firstX = me.getX();
+            _firstY = me.getY();
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
+        
+        if(_lineSelected)
+        {
+            PaintManager.getInstance().NewLine(_firstX, me.getX(),_firstY, me.getY(), _color, _strokeThickness);
+        } else if(_circleSelected)
+        {
+            int pRadio = Integer.parseInt(JOptionPane.showInputDialog("Enter radio"));
+            PaintManager.getInstance().newCircle(pRadio, me.getX(), me.getY(), _color, _strokeThickness);
+            
+        }
+        _circleSelected = _lineSelected = false;
+        _drawingPointSelection = true;
     }
 
     @Override
