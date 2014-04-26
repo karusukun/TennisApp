@@ -51,6 +51,9 @@ public class MainWindow extends javax.swing.JFrame {
         slider_thickness = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         btn_ChangeColor = new javax.swing.JButton();
+        checkbox_Fill = new java.awt.Checkbox();
+        lbl_soleThickness = new javax.swing.JLabel();
+        slider_SoleThickness = new javax.swing.JSlider();
         jPanel_Design = new javax.swing.JPanel();
         btn_NewDesign = new javax.swing.JButton();
         btn_LoadSelected = new javax.swing.JButton();
@@ -84,7 +87,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanel_FiguresLayout.setHorizontalGroup(
             jPanel_FiguresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_FiguresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel_FiguresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_NewOrnament, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_NewLine, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,36 +116,56 @@ public class MainWindow extends javax.swing.JFrame {
 
         btn_ChangeColor.setText("Change Color");
 
+        checkbox_Fill.setForeground(new java.awt.Color(255, 255, 204));
+        checkbox_Fill.setLabel("Filled");
+
+        lbl_soleThickness.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_soleThickness.setText("Sole Thickness");
+
+        slider_SoleThickness.setMaximum(15);
+        slider_SoleThickness.setMinimum(1);
+        slider_SoleThickness.setValue(1);
+
         javax.swing.GroupLayout jPanel_PropertiesLayout = new javax.swing.GroupLayout(jPanel_Properties);
         jPanel_Properties.setLayout(jPanel_PropertiesLayout);
         jPanel_PropertiesLayout.setHorizontalGroup(
             jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
-                .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
-                        .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(btn_ChangeColor)))
-                        .addGap(0, 81, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_PropertiesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(slider_thickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(slider_SoleThickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(checkbox_Fill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(21, 21, 21)
+                            .addComponent(btn_ChangeColor))
+                        .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                            .addGap(78, 78, 78)
+                            .addComponent(jLabel1))
+                        .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(slider_thickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel_PropertiesLayout.createSequentialGroup()
+                            .addGap(78, 78, 78)
+                            .addComponent(lbl_soleThickness))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_PropertiesLayout.setVerticalGroup(
             jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_PropertiesLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btn_ChangeColor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addGroup(jPanel_PropertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkbox_Fill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_ChangeColor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slider_thickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_soleThickness)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(slider_SoleThickness, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jPanel_Design.setBackground(new java.awt.Color(47, 47, 47));
@@ -179,6 +202,7 @@ public class MainWindow extends javax.swing.JFrame {
         btn_Fire.setText("Fire");
 
         canvas_mainCanvas.setBackground(new java.awt.Color(255, 255, 255));
+        canvas_mainCanvas.setForeground(new java.awt.Color(255, 204, 102));
 
         javax.swing.GroupLayout canvas_mainCanvasLayout = new javax.swing.GroupLayout(canvas_mainCanvas);
         canvas_mainCanvas.setLayout(canvas_mainCanvasLayout);
@@ -229,7 +253,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jPanel_Design, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel_Figures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel_Properties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(canvas_mainCanvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -288,12 +312,15 @@ public class MainWindow extends javax.swing.JFrame {
     public javax.swing.JButton btn_NewLine;
     public javax.swing.JButton btn_NewOrnament;
     public javax.swing.JPanel canvas_mainCanvas;
+    public java.awt.Checkbox checkbox_Fill;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JList jList_DesignList;
     private javax.swing.JPanel jPanel_Design;
     private javax.swing.JPanel jPanel_Figures;
     private javax.swing.JPanel jPanel_Properties;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_soleThickness;
+    public javax.swing.JSlider slider_SoleThickness;
     public javax.swing.JSlider slider_thickness;
     // End of variables declaration//GEN-END:variables
 }

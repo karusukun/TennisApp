@@ -60,12 +60,13 @@ public class PaintManager {
     
     }
     
-    public void newCircle(int pRadio, int pX, int pY, Color pColor, int pStroke)
+    public void newCircle(int pRadio, int pX, int pY, Color pColor, int pStroke, boolean fill)
     {
         Circle newCircle = new Circle(pRadio,pX,pY);
         newCircle.setColor(pColor);
         newCircle.setStroke(pColor);
         newCircle.setStroke_Thickness(pStroke);
+        newCircle.setFill(fill);
         
         DesignLogic.getDesignLogicInstance().getActualDesign().addFigure(newCircle);
         loadDesign(this._canvas.getGraphics());

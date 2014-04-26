@@ -140,17 +140,24 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     @Override
     public void mouseReleased(MouseEvent me) {
         
+        _strokeThickness = _mainWindow.slider_thickness.getValue();
+        
         if(_lineSelected)
         {
             PaintManager.getInstance().NewLine(_firstX, me.getX(),_firstY, me.getY(), _color, _strokeThickness);
         } else if(_circleSelected)
         {
             int pRadio = Integer.parseInt(JOptionPane.showInputDialog("Enter radio"));
-            PaintManager.getInstance().newCircle(pRadio, me.getX(), me.getY(), _color, _strokeThickness);
+            PaintManager.getInstance().newCircle(pRadio, me.getX(), me.getY(), _color, _strokeThickness, this._mainWindow.checkbox_Fill.getState());
             
         }
         _circleSelected = _lineSelected = false;
         _drawingPointSelection = true;
+        
+        if(me.getSource() == _mainWindow.slider_SoleThickness)
+        {
+            DesignLogic.getDesignLogicInstance().getActualDesign();
+        }
     }
 
     @Override

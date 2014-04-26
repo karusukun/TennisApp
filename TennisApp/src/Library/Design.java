@@ -66,6 +66,19 @@ public class Design
         }
         return _figureList.get(figurePosition);
     }   //End of getFigure
+    
+    public Sole getSole()
+    {
+        for(Figure iterator : this._figureList)
+        {
+            if(iterator.getKindFigure() == kindFigure.Sole)
+            {
+                return (Sole)iterator;
+            }
+            
+        }
+        return null;
+    }
 
     //I've to ask what's the function of this ****
     private Design getDesign(String pName) {
