@@ -64,7 +64,8 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         _mainWindow.btn_NewLine.addActionListener(listener);
         _mainWindow.btn_NewOrnament.addActionListener(listener);
         _mainWindow.btn_SetProperties.addActionListener(listener);
-        
+        _mainWindow.btn_SetOutlineColor.addActionListener(listener);
+        _mainWindow.btn_SetSoleColor.addActionListener(listener);
     }  
     
     public void setMouseListener(MouseListener listener){
@@ -121,12 +122,29 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
             this._lineSelected = _drawingPointSelection = false;
         } else if(ae.getSource() == this._mainWindow.btn_SetProperties)
         {
+            _strokeThickness = this._mainWindow.slider_thickness.getValue();
             DesignLogic.getDesignLogicInstance().getActualDesign().getSole().setStroke_Thickness(this._mainWindow.slider_SoleThickness.getValue());
             for(Border figuraAct : DesignLogic.getDesignLogicInstance().getActualDesign().getBorders()  )
             {
-                figuraAct.setStroke_Thickness(this._mainWindow.slider_thickness.getValue());
+                figuraAct.setStroke_Thickness(_strokeThickness);
             }
+            
+            
+        } else if(ae.getSource() == this._mainWindow.btn_SetSoleColor)
+        {
+            DesignLogic.getDesignLogicInstance().getActualDesign().getSole().setColor(JColorChooser.showDialog(_mainWindow,"Choose a Color", Color.BLACK));
+            
+        } else if(ae.getSource() == this._mainWindow.btn_SetOutlineColor)
+        {
+            Color pColor = JColorChooser.showDialog(_mainWindow,"Choose a Color", Color.BLACK);
+            
+            for(Border figuraAct : DesignLogic.getDesignLogicInstance().getActualDesign().getBorders()  )
+            {
+                figuraAct.setColor(pColor);
+            }
+            
         }
+        
             
         
         
