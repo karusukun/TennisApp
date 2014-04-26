@@ -1,24 +1,65 @@
 package Logic;
 
 import Library.modePaint;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Date;
 
 public class Report {
     
-    public void createReport(modePaint pMode, float pTime){
+    private void createReportTxt(){
+        File f;
+        f = new File("nombreArchivo");
+        //Escritura
+    try{
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+
+        File file = new File("Report.txt"); 
+
+        if (!file.exists()) { 
+            if (file.createNewFile()) { 
+                System.out.println("El fichero se ha creado correctamente"); 
+            } else { 
+                System.out.println("No ha podido ser creado el fichero"); 
+            } 
+            /*la clave de activar o no la sobreescritura esta en FileOutputStream(file, true) si le ponemos en true entonces agregas al final de la linea */ 
+
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF8")); 
+
+        out.write("\nDesign Name: "+ this.string__designName);
+        out.write(" \nDate: "+this.date__reportDate); 
+        out.write("\nArcade time: "+this.float__arcadeTime); 
+        out.write("\nFire time: "+this.float__fireTime); 
+        out.write("\nBest time task: "+Float.toString(this.bestTimeExecution)); 
+        out.close(); 
+    } 
+
+    }catch(IOException e){}; 
+    }
+    
+    public Report(modePaint pMode, float pTime){
         Date date = new Date();
-        date__reportDate = date.toString();
-        string__designName = DesignLogic.getDesignLogicInstance().getActualDesign().getName();
+        this.date__reportDate = date.toString();
+        this.string__designName = DesignLogic.getDesignLogicInstance().getActualDesign().getName();
         
         if(pMode == modePaint.Arcade){
-            float__arcadeTime = Float.toString(pTime);
+            this.float__arcadeTime = Float.toString(pTime);
         }if(pMode == modePaint.Fire){
-            float__fireTime =  Float.toString(pTime);
+            this.float__fireTime =  Float.toString(pTime);
         }if(bestTimeExecution > pTime){
-            bestTimeExecution = pTime;
+            this.bestTimeExecution = pTime;
         }
+        createReportTxt();
     }
-
+    
+    
     public String getString__designName() {
         return string__designName;
     }
