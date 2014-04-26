@@ -24,7 +24,7 @@ public class PaintManager {
     
     public void MoveEditPoint(int pX,int pY)
     {
-        System.out.println("moviendo un punto");
+        System.out.println("they see me rolling the hatin");
         int diameter = 30;
         DrawingPoint actualDP = new DrawingPoint(0,0,null);
         List<Figure> figureList;
@@ -34,17 +34,19 @@ public class PaintManager {
         
         
         for( Figure Iterator : figureList)
-        {
-            if(actualDP.getFigureId()  == Iterator.getFigureId())
+        { 
+            if(actualDP.getKindFigure()  == Iterator.getKindFigure())
             {    
                 actualDP = (DrawingPoint)Iterator;
                 
                 if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
                 {
+                      System.out.println("yup its worken");
                       DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
                       loadDesign(_canvas.getGraphics());
 
                 }
+            
             }
         }
     }

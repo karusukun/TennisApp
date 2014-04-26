@@ -24,6 +24,14 @@ public class DrawingPoint extends Figure
         return _drawingPoint;
     }
 
+    public PointID getID() {
+        return _ID;
+    }
+
+    public void setID(PointID _ID) {
+        this._ID = _ID;
+    }    
+
    
     
     //DrawingPoint's attributes
