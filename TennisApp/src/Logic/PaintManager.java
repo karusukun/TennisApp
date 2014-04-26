@@ -39,7 +39,7 @@ public class PaintManager {
                 
                 if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
                 {
-                      System.out.println("yup its worken");
+                      
                       DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
                       switch(actualDP.getID())
                       {
