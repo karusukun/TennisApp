@@ -58,6 +58,7 @@ public class EditorDrawning implements DesignDrawnI {
         int radio = figureList.get(0).getDrawingPoint();
         
         //draw the borders
+        graphic.setColor(Color.black);
         graphic.drawLine(figureList.get(1).getX1() + radio, figureList.get(1).getY1() + radio, figureList.get(2).getX1() + radio, figureList.get(2).getY1() + radio);
         graphic.drawLine(figureList.get(2).getX1() + radio, figureList.get(2).getY1() + radio, figureList.get(3).getX1() + radio, figureList.get(3).getY1() + radio);
         graphic.drawLine(figureList.get(3).getX1() + radio, figureList.get(3).getY1() + radio, figureList.get(4).getX1() + radio, figureList.get(4).getY1() + radio);
