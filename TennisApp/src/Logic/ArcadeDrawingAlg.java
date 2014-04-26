@@ -115,7 +115,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     //Method to draw figures O(n)= 2+(3679)N+ falta el fill
     /*It recives a list of figures to draw and paint it with a graphics*/
     private void drawFigures(List<Figure> pfigureList){
-        drawFillers(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());//Corregir fill
+        //drawFillers(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());//Corregir fill
         int listLong=0;//1
         while(listLong < pfigureList.size()){//1+n*(3677+2)
             kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
@@ -145,11 +145,12 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
                         drawStraightBorder(recBorder); //33+1
                     break;//1
                 default:
-                    System.out.println("Not found figure");//23
+                    System.out.println("Not found figure Arcade\n");//23
                     break;//1
             }
             listLong++;//2
         }
+        graphic.finalize();
     }
     
     public ArcadeDrawingAlg() {

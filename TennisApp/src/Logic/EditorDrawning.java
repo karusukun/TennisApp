@@ -47,11 +47,11 @@ public class EditorDrawning implements DesignDrawnI {
         Graphics2D graphic = (Graphics2D) pGraphic;
         graphic.setBackground(Color.white);
         
-        graphic.clearRect(0, 0, 550, 520);
+        graphic.clearRect(0, 0, 800, 600);
         graphic.setColor(Color.black);
-        
-        int listLong=0;
-        while(listLong < figureList.size()){
+        System.out.println(figureList.size());
+        for(int listLong=0;listLong < figureList.size();listLong++){
+            System.out.println(listLong);
             kindFigure typeFigure = figureList.get(listLong).getKindFigure();
             switch(typeFigure){
                 case Circle:
@@ -93,20 +93,11 @@ public class EditorDrawning implements DesignDrawnI {
                     break;
                     
                 default:
+                    System.out.println("Not found figure edit\n");
                     break;
             }
-            listLong++;
-        }      
-        int radio = figureList.get(0).getDrawingPoint();
-        
-        //draw the borders
-        graphic.setColor(Color.black);
-        graphic.drawLine(figureList.get(1).getX1() + radio, figureList.get(1).getY1() + radio, figureList.get(2).getX1() + radio, figureList.get(2).getY1() + radio);
-        graphic.drawLine(figureList.get(2).getX1() + radio, figureList.get(2).getY1() + radio, figureList.get(3).getX1() + radio, figureList.get(3).getY1() + radio);
-        graphic.drawLine(figureList.get(3).getX1() + radio, figureList.get(3).getY1() + radio, figureList.get(4).getX1() + radio, figureList.get(4).getY1() + radio);
-        graphic.draw(new QuadCurve2D.Float(figureList.get(0).getX1() + radio, figureList.get(0).getY1() + radio, 255, 255, figureList.get(1).getX1() + radio, figureList.get(1).getY1() + radio));
-        graphic.draw(new QuadCurve2D.Float(figureList.get(0).getX1() + radio, figureList.get(0).getY1() + radio, 10, 200, figureList.get(4).getX1() + radio, figureList.get(4).getY1() + radio));
-
+        }
+        graphic.finalize();
     }
      
     

@@ -44,30 +44,35 @@ public class PaintManager {
                       switch(actualDP.getID())
                       {
                           case A:
+                              System.out.print("Entra punto a");
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX1(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY1(actualDP.getY1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX1(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY1(actualDP.getY1());
                             break;
                           case B:
+                              System.out.print("Entra punto b");
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX2(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY2(actualDP.getY1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX1(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY1(actualDP.getY1());
                             break;
                           case C:
+                              System.out.print("Entra punto c");
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX2(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY2(actualDP.getY1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX1(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY1(actualDP.getY1());
                               break;
                           case D:
+                              System.out.print("Entra punto d");
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX2(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY2(actualDP.getY1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX1(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY1(actualDP.getY1());
                               break;
                           case E:
+                              System.out.print("Entra punto e");
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX2(actualDP.getX1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY2(actualDP.getY1());
                               DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX2(actualDP.getX1());
@@ -131,11 +136,11 @@ public class PaintManager {
 
     public void loadDesign(Graphics pG) 
     {
-        long timeStart = System.currentTimeMillis();
+        //long timeStart = System.currentTimeMillis();
         DesignDrawnI painter = _Painters.get(_ModeType);
         painter.paint(pG);
-        long timeEnd = System.currentTimeMillis();
-        Report rep = new Report(_ModeType, timeEnd-timeStart);
+        //long timeEnd = System.currentTimeMillis();
+        //Report rep = new Report(_ModeType, timeEnd-timeStart);
 //this._canvas.paint(painter.paint(pDesign,pG));
         
     }

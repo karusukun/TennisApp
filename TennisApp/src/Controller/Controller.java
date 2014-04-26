@@ -151,6 +151,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
             PaintManager.getInstance().newCircle(pRadio, me.getX(), me.getY(), _color, _strokeThickness, this._mainWindow.checkbox_Fill.getState());
             
         }
+        System.out.println("Sali de esta cosa\n");
         _circleSelected = _lineSelected = false;
         _drawingPointSelection = true;
         

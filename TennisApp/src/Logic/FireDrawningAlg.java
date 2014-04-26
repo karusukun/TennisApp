@@ -103,8 +103,8 @@ public class FireDrawningAlg implements DesignDrawnI  {
     }
     
     //Method to draw the differents figures
-    private Graphics drawFigures(List<Figure> pfigureList){
-        drawFillers(pfigureList);
+    private void drawFigures(List<Figure> pfigureList){
+        //drawFillers(pfigureList);
         int listLong=0;
         while(listLong < pfigureList.size()){
             //depend on the kind of figure it call the respective function of painting
@@ -135,12 +135,12 @@ public class FireDrawningAlg implements DesignDrawnI  {
                         drawStraightBorder(recBorder);
                     break;
                 default:
-                    System.out.println("Not found figure");
+                    System.out.println("Not found figure Fire\n");
                     break;
             }
             listLong++;
         }
-        return graphic;
+        graphic.finalize();
     }
     
     public FireDrawningAlg() {
