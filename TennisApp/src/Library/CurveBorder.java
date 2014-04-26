@@ -3,14 +3,7 @@ package Library;
 import java.awt.geom.QuadCurve2D;
 
 public class CurveBorder extends Border
-{
-    //CurveBorder builder
-    public CurveBorder(){
-        this.curve = new QuadCurve2D.Float();
-        this._kindFigure = kindFigure.CurveBorder;
-        this.angle = 0;
-    }
-    
+{    
     public CurveBorder(int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
         this.curve = new QuadCurve2D.Float(pX, pY, pCtrlX, pCtrlY, pX2, pY2);
         _kindFigure = kindFigure.CurveBorder;

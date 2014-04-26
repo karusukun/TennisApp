@@ -1,10 +1,12 @@
 package Logic;
 import Library.*;
+import com.sun.org.apache.bcel.internal.generic.FLOAD;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import java.awt.geom.Arc2D;
 import java.awt.geom.QuadCurve2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ public class EditorDrawning implements DesignDrawnI {
         pGrap2.setColor(pBorder.getColor());
         Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
-        pGrap2.draw(pBorder.getCurve());
+        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(), pBorder.getCtrlX(), pBorder.getCtrlY()/2, pBorder.getX2(), pBorder.getY2()));
     }
     
     //draw the sole
@@ -102,50 +104,3 @@ public class EditorDrawning implements DesignDrawnI {
      
     
 }
-    /*
-    @Override
-    public void paint(Design pDesing, Graphics pGrap) {
-        Graphics2D graphic = (Graphics2D) pGrap;
-        graphic.setBackground(Color.white);
-        
-        graphic.clearRect(0, 0, 550, 520);
-        graphic.setColor(Color.black);
-        graphic.setStroke(2);
-        List<Figure> figureList = pDesing.getFigureList();
-        
-        int listLong=0;
-        while(listLong < figureList.size()){
-            kindFigure typeFigure = figureList.get(listLong).getKindFigure();
-            switch(typeFigure){
-                case Circle:
-                    Circle circle = (Circle) figureList.get(listLong);
-                    graphic.drawOval(circle.getX1(),circle.getY1(),circle.getRadio(),circle.getRadio());
-                    break;
-                    
-                case CurveBorder:
-                        CurveBorder border = (CurveBorder) figureList.get(listLong);
-                        graphic.draw(border.getCurve());
-                    break;
-                 
-                case DrawPoint:
-                        DrawingPoint point = (DrawingPoint) figureList.get(listLong);
-                        graphic.fillOval(point.getX1(),point.getY1(),point.getDrawingPoint(),point.getDrawingPoint());
-                    break;
-                    
-                case StraightLine:
-                        StraightLine line = (StraightLine) figureList.get(listLong);
-                        graphic.drawLine(line.getX1(),line.getY1(),line.getX2(),line.getY2());
-                    break;
-                    
-                case StraighBorder:
-                        StraightBorder recBorder = (StraightBorder) figureList.get(listLong);
-                        graphic.drawLine(recBorder.getX1(), recBorder.getY1(), recBorder.getX2(), recBorder.getY2());
-                    break;
-                default:
-                    break;
-            }
-            listLong++;
-        }
-    }       
-}
-*/

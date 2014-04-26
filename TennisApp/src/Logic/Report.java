@@ -15,34 +15,23 @@ import java.util.Date;
 public class Report {
     
     private void createReportTxt(){
-        File f;
-        f = new File("nombreArchivo");
-        //Escritura
-    try{
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+        
+        try{
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
 
-        File file = new File("Report.txt"); 
+            File file = new File("Report.txt"); 
 
-        if (!file.exists()) { 
-            if (file.createNewFile()) { 
-                System.out.println("El fichero se ha creado correctamente"); 
-            } else { 
-                System.out.println("No ha podido ser creado el fichero"); 
-            } 
-            /*la clave de activar o no la sobreescritura esta en FileOutputStream(file, true) si le ponemos en true entonces agregas al final de la linea */ 
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF8")); 
 
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF8")); 
+            out.append("\nDesign Name: "+ this.string__designName);
+            out.append(" \nDate: "+this.date__reportDate); 
+            out.append("\nArcade time: "+this.float__arcadeTime); 
+            out.append("\nFire time: "+this.float__fireTime); 
+            out.append("\nBest time task: "+Float.toString(this.bestTimeExecution)); 
+            out.close(); 
 
-        out.write("\nDesign Name: "+ this.string__designName);
-        out.write(" \nDate: "+this.date__reportDate); 
-        out.write("\nArcade time: "+this.float__arcadeTime); 
-        out.write("\nFire time: "+this.float__fireTime); 
-        out.write("\nBest time task: "+Float.toString(this.bestTimeExecution)); 
-        out.close(); 
-    } 
-
-    }catch(IOException e){}; 
-    }
+        }catch(IOException e){}; 
+        }
     
     public Report(modePaint pMode, float pTime){
         Date date = new Date();
