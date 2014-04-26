@@ -69,11 +69,27 @@ public final class DesignLogic
     public void newDesign(String pName)
     {
         Design pDesign = new Design(pName);
-        pDesign.addFigure(new DrawingPoint(60, 130, PointID.A));
-        pDesign.addFigure(new DrawingPoint(300, 130, PointID.B));
-        pDesign.addFigure(new DrawingPoint(360, 200, PointID.C));
-        pDesign.addFigure(new DrawingPoint(450, 290, PointID.D));
-        pDesign.addFigure(new DrawingPoint(60, 290, PointID.E));
+        
+        //Add the drawing points to the design
+        DrawingPoint pointA,pointB,pointC,pointD,pointE;
+        
+        pointA = new DrawingPoint(60, 130, PointID.A);
+        pointB = new DrawingPoint(300, 130, PointID.B);
+        pointC = new DrawingPoint(360, 200, PointID.C);
+        pointD = new DrawingPoint(450, 290, PointID.D);
+        pointE = new DrawingPoint(60, 290, PointID.E);
+        
+        
+        
+        pDesign.addFigure();
+        pDesign.addFigure();
+        pDesign.addFigure();
+        pDesign.addFigure();
+        pDesign.addFigure();
+        
+        //Add the borders to the design
+        
+        
         this._DesignList.add(pDesign);
         setActualDesign(selectActualDesing(pName));
         System.out.println(_ActualDesign.getName());

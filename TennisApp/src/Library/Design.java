@@ -79,6 +79,20 @@ public class Design
         }
         return null;
     }
+    
+    public ArrayList<Border> getBorders()
+    {
+        ArrayList<Border> borders = new ArrayList<Border>();
+        
+        for(Figure iterator : _figureList)
+        {
+            if(iterator._kindFigure == kindFigure.CurveBorder || iterator._kindFigure == kindFigure.StraighBorder)
+            {
+                borders.add((Border)iterator);
+            }
+        }
+        return borders;
+    }
 
     //I've to ask what's the function of this ****
     private Design getDesign(String pName) {

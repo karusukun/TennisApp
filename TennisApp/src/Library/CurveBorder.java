@@ -40,6 +40,8 @@ public class CurveBorder extends Border
         this.ctrlY = ctrlY;
     }
     
+    
+    
     @Override
     public QuadCurve2D getCurve() {
         return curve;
