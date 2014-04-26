@@ -12,6 +12,9 @@ public class FireDrawningAlg implements DesignDrawnI  {
     @Override       //f(n)=5+84N+drawfiller -> O(N)=n
     public void paint(Graphics pGrapic){
         this.graphic = pGrapic;//1
+        Graphics2D painter = (Graphics2D) graphic;
+        painter.setBackground(Color.white);
+        painter.clearRect(0, 0, 800, 600);
         drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList()); //4+84N
     }
     //this method has to draw a circle or a fill circle
