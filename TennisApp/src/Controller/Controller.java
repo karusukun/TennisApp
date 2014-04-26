@@ -83,12 +83,15 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         } else if (ae.getSource() == _mainWindow.btn_Arcade)
         {
             PaintManager.getInstance().setMode(modePaint.Arcade);
+            PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
         } else if(ae.getSource() == _mainWindow.btn_Edit)
         {
             PaintManager.getInstance().setMode(modePaint.Edit);
+            PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
         } else if(ae.getSource() == _mainWindow.btn_Fire)
         {
             PaintManager.getInstance().setMode(modePaint.Fire);
+            PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
         } else if(ae.getSource() == _mainWindow.btn_LoadSelected)
         {
             System.out.println(_mainWindow.jList_DesignList.getSelectedValue().toString());

@@ -1,5 +1,6 @@
 package Library;
 
+import java.awt.Color;
 import java.awt.geom.QuadCurve2D;
 
 /*
