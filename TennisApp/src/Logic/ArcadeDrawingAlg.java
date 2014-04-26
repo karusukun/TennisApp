@@ -8,22 +8,23 @@ import java.util.List;
 
 public class ArcadeDrawingAlg implements DesignDrawnI  {
     
-    @Override
+    @Override       //paint method for the figures
     public void paint(Graphics pGraphic){
-        this.graphic = pGraphic;
+        this.graphic = pGraphic;                //+1
         drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
     }
     
+    //
     private void drawCircle(Circle pCircle){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pCircle.getColor());
-        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
-        if(pCircle.getFill() ){
-            int x = pCircle.getX1();
-            int y = pCircle.getY1();
-            int radio = pCircle.getRadio()*2;
-            int angulo = 0;
-            while(angulo<=360){
+        Graphics2D pGrap2 = (Graphics2D) graphic;   //+1
+        pGrap2.setColor(pCircle.getColor());        //+2+1+2 = 5
+        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);//+2+2+2+3+3+4 = 16
+        if(pCircle.getFill()){ //2+1
+            int x = pCircle.getX1();//1+2=3
+            int y = pCircle.getY1();//1+2=3
+            int radio = pCircle.getRadio()*2;//1+2+1=4
+            int angulo = 0;//+1
+            while(angulo<=360){//
                 pGrap2.fillArc(x, y, radio, radio, angulo, 360);
                 angulo++;
             }
