@@ -7,6 +7,8 @@
 package tennisapp;
 
 import Controller.Controller;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import views.GUI.MainWindow;
 
 /**
@@ -23,7 +25,7 @@ public class TennisApp {
         
         
         
-        MainWindow pwindow = new MainWindow();
+        MainWindow pwindow = new MainWindow();        
         Controller controller = new Controller(pwindow);
         
         
