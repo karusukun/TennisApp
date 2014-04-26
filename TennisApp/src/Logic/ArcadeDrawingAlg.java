@@ -12,8 +12,17 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     
     // f(n)= 5+(3681)N+ falta el fill -> O(n)=n
     public void paint(Graphics pGraphic){
-        this.graphic = pGraphic;                //+1
-        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList()); //4+(3681)N+ falta el fill
+        
+        try
+        {   
+            this.graphic = pGraphic; //+1
+            drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList()); //4+(3681)N+ falta el fill
+        }                
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        
     }
     
     // Method to draw a circle f(n)=3671

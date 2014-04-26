@@ -15,7 +15,14 @@ public class EditorDrawning implements DesignDrawnI {
     
      @Override
     public void paint( Graphics pGraphic){
-        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList(), pGraphic);
+        try
+        {
+            drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList(), pGraphic);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
     }
     //Method to draw a curve border
     private void drawCurveBorder(CurveBorder pBorder, Graphics graphic){
@@ -92,8 +99,7 @@ public class EditorDrawning implements DesignDrawnI {
                         drawSole(sole, graphic);
                     break;
                     
-                default:
-                    System.out.println("Not found figure edit\n");
+                default:                    
                     break;
             }
         }

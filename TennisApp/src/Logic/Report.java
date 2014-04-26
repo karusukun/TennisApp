@@ -1,5 +1,6 @@
 package Logic;
 
+import DataAccess.ParseDataAccess;
 import Library.modePaint;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,6 +15,7 @@ import java.util.Date;
 
 public class Report {
     
+    
     private void createReportTxt(){
         
         try{
@@ -23,34 +25,44 @@ public class Report {
 
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF8")); 
 
-            out.write("\nDesign Name: "+ this.string__designName);
-            out.write(" ");
-            out.write(" \nDate: "+this.date__reportDate); 
-            out.write(" ");
-            out.write("\nArcade time: "+this.float__arcadeTime); 
-            out.write(" ");
-            out.write("\nFire time: "+this.float__fireTime); 
-            out.write(" ");
-            out.write("\nBest time task: "+Float.toString(this.bestTimeExecution));
-            out.write(" ");
+            out.append("\n Design Name: "+ this.string__designName);
+            out.append(" ");
+            out.append("\n Date: "+this.date__reportDate); 
+            out.append(" ");
+            out.append("\n Arcade time: "+this.float__arcadeTime); 
+            out.append(" ");
+            out.append("\n Fire time: "+this.float__fireTime); 
+            out.append(" ");
+            out.append("\n Best time task: "+Float.toString(this.bestTimeExecution));
+            out.append(" ");
             out.close(); 
 
         }catch(IOException e){}; 
         }
     
-    public Report(modePaint pMode, float pTime){
-        Date date = new Date();
-        this.date__reportDate = date.toString();
-        this.string__designName = DesignLogic.getDesignLogicInstance().getActualDesign().getName();
+    public Report(modePaint pMode, float pTime) throws IOException{
         
-        if(pMode == modePaint.Arcade){
-            this.float__arcadeTime = Float.toString(pTime/1000);
-        }if(pMode == modePaint.Fire){
-            this.float__fireTime =  Float.toString(pTime/1000);
-        }if(bestTimeExecution > pTime/1000){
-            this.bestTimeExecution = pTime/1000;
+        try
+        {
+            
+            Date date = new Date();
+            this.date__reportDate = date.toString();
+            this.string__designName = DesignLogic.getDesignLogicInstance().getActualDesign().getName();
+
+            if(pMode == modePaint.Arcade){
+                this.float__arcadeTime = Float.toString(pTime/1000);
+            }if(pMode == modePaint.Fire){
+                this.float__fireTime =  Float.toString(pTime/1000);
+            }if(bestTimeExecution > pTime/100){
+                this.bestTimeExecution = pTime/100;
+            }
+            ParseDataAccess.getInstance().saveReport(this);
+            createReportTxt();
         }
-        createReportTxt();
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
     }
     
     

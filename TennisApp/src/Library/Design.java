@@ -1,13 +1,14 @@
 
 package Library;
 import java.awt.Polygon;
+import java.io.*;
 import java.util.*;
 
 /*
  * Class Design has the information about the name,
  * figures, Id of the different designs of the tennis
  */
-public class Design
+public class Design implements java.io.Serializable
 {
     //Default builder
 
@@ -15,8 +16,7 @@ public class Design
     public Design(String pName) {
         _name = pName;
         _figureList = new ArrayList<Figure>();
-        _designId = _id;
-        _id++;
+        _designId = "";
     }
     
     public void addFigure(Figure pFigure)
@@ -41,11 +41,11 @@ public class Design
         this._figureList = _figureList;
     }
 
-    public int getDesignId() {
+    public String getDesignId() {
         return _designId;
     }
 
-    public void setDesignId(int _designId) {
+    public void setDesignId(String _designId) {
         this._designId = _designId;
     }
 
@@ -113,10 +113,13 @@ public class Design
         return p;
     }
     
+    
+       
+    
     //Design's attributes
     private String _name;
     private List<Figure> _figureList;
     private List<Polygon> _polygonList;
-    private int _designId;
+    private String _designId;
     private static int _id=0;
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
      * This class have the chacacteristics like thickness, color ...
      * of differents figures like circle, lines, points and other figures.
     */
-public abstract class Figure
+public abstract class Figure implements java.io.Serializable
 {
     //Figure's attributes
     protected boolean _fill;

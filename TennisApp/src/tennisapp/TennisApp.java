@@ -7,8 +7,12 @@
 package tennisapp;
 
 import Controller.Controller;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import org.parse4j.ParseException;
 import views.GUI.MainWindow;
 
 /**
@@ -20,13 +24,17 @@ public class TennisApp {
     /**
       @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException, IOException {
         // TODO code application logic here
         
         
         
         MainWindow pwindow = new MainWindow();        
-        Controller controller = new Controller(pwindow);
+        try {
+            Controller controller = new Controller(pwindow);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TennisApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }
