@@ -6,6 +6,7 @@
 
 package Controller;
 
+import Library.Border;
 import Library.modePaint;
 import Logic.DesignLogic;
 import Logic.PaintManager;
@@ -19,6 +20,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.event.AncestorListener;
 import views.GUI.MainWindow;
 
 /**
@@ -61,6 +63,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         _mainWindow.btn_NewDesign.addActionListener(listener);
         _mainWindow.btn_NewLine.addActionListener(listener);
         _mainWindow.btn_NewOrnament.addActionListener(listener);
+        _mainWindow.btn_SetProperties.addActionListener(listener);
         
     }  
     
@@ -116,6 +119,13 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         {
             this._circleSelected = true;
             this._lineSelected = _drawingPointSelection = false;
+        } else if(ae.getSource() == this._mainWindow.btn_SetProperties)
+        {
+            DesignLogic.getDesignLogicInstance().getActualDesign().getSole().setStroke_Thickness(this._mainWindow.slider_SoleThickness.getValue());
+            for(Border figuraAct : DesignLogic.getDesignLogicInstance().getActualDesign().getBorders()  )
+            {
+                figuraAct.setStroke_Thickness(this._mainWindow.slider_thickness.getValue());
+            }
         }
             
         
@@ -124,6 +134,12 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        
+        if(me.getSource() == _mainWindow.slider_SoleThickness)
+        {
+            System.out.println("im changing betch");
+            DesignLogic.getDesignLogicInstance().getActualDesign();
+        }
         
     }
 
@@ -154,11 +170,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
         _circleSelected = _lineSelected = false;
         _drawingPointSelection = true;
         
-        if(me.getSource() == _mainWindow.slider_SoleThickness)
-        {
-            System.out.println("im changing betch");
-            DesignLogic.getDesignLogicInstance().getActualDesign();
-        }
+        
     }
 
     @Override
