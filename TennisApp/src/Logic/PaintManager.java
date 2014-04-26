@@ -39,44 +39,44 @@ public class PaintManager {
                 
                 if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
                 {
-                      
+                      int radius = actualDP.getDrawingPoint();
                       DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
                       switch(actualDP.getID())
                       {
                           case A:
                               System.out.print("Entra punto a");
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX1(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY1(actualDP.getY1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX1(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY1(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX1(actualDP.getX1() + radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY1(actualDP.getY1() + radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX1(actualDP.getX1() + radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY1(actualDP.getY1() + radius);
                             break;
                           case B:
                               System.out.print("Entra punto b");
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX2(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY2(actualDP.getY1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX1(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY1(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX2(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY2(actualDP.getY1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX1(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY1(actualDP.getY1()+ radius);
                             break;
                           case C:
                               System.out.print("Entra punto c");
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX2(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY2(actualDP.getY1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX1(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY1(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX2(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY2(actualDP.getY1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX1(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY1(actualDP.getY1()+ radius);
                               break;
                           case D:
                               System.out.print("Entra punto d");
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX2(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY2(actualDP.getY1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX1(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY1(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX2(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY2(actualDP.getY1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX1(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY1(actualDP.getY1()+ radius);
                               break;
                           case E:
                               System.out.print("Entra punto e");
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX2(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY2(actualDP.getY1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX2(actualDP.getX1());
-                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY2(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX2(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY2(actualDP.getY1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX2(actualDP.getX1()+ radius);
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY2(actualDP.getY1()+ radius);
                               break;
                       }
                       loadDesign(_canvas.getGraphics());
