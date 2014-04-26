@@ -36,13 +36,13 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);//+2+10+4
     }
     
-    //Method to draw a curve border O(n)=23
+    //Method to draw a curve border O(n)=36
     private void drawCurveBorder(CurveBorder pBorder){
         Graphics2D pGrap2 = (Graphics2D) graphic;//+1
         pGrap2.setColor(pBorder.getColor());//5
         Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);//10
         pGrap2.setStroke(stroke);//3
-        pGrap2.draw(pBorder.getCurve());//4
+        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),70, 180, pBorder.getX2(), pBorder.getY2()));//17
     }
     
     //method to draw a straight lone O(n)= 116

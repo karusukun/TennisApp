@@ -20,16 +20,20 @@ public class EditorDrawning implements DesignDrawnI {
     //Method to draw a curve border
     private void drawCurveBorder(CurveBorder pBorder, Graphics graphic){
         Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pBorder.getColor());
+        pGrap2.setColor(Color.BLACK);
+        System.out.println(pBorder.getCtrlX());
+        System.out.println(pBorder.getCtrlY());
+        System.out.println(pBorder.getX1());
+        System.out.println(pBorder.getY1());
         Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
-        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(), pBorder.getCtrlX(), pBorder.getCtrlY()/2, pBorder.getX2(), pBorder.getY2()));
+        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),70, 180, pBorder.getX2(), pBorder.getY2()));
     }
     
     //draw the sole
     private void drawSole(Sole pSole, Graphics graphic){
         Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pSole.getColor());
+        pGrap2.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(pSole.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
         pGrap2.drawLine(pSole.getX1(), pSole.getY1(), pSole.getX2(), pSole.getY2());
@@ -38,7 +42,7 @@ public class EditorDrawning implements DesignDrawnI {
     //draw the straigh border
     private void drawStraightBorder(StraightBorder pBorder, Graphics graphic){
         Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pBorder.getColor());
+        pGrap2.setColor(Color.BLACK);
         Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
         pGrap2.drawLine(pBorder.getX1(), pBorder.getY1(), pBorder.getX2(), pBorder.getY2());
@@ -51,9 +55,7 @@ public class EditorDrawning implements DesignDrawnI {
         
         graphic.clearRect(0, 0, 800, 600);
         graphic.setColor(Color.black);
-        System.out.println(figureList.size());
         for(int listLong=0;listLong < figureList.size();listLong++){
-            System.out.println(listLong);
             kindFigure typeFigure = figureList.get(listLong).getKindFigure();
             switch(typeFigure){
                 case Circle:

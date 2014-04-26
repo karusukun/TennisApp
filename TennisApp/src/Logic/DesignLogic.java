@@ -85,8 +85,8 @@ public final class DesignLogic
         int radius = pointA.getDrawingPoint();
         
         //Add the borders to the design
-        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointE.getX1() + radius ,pointE.getY1() + radius,10,200));
-        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointB.getX1() + radius,pointB.getY1() + radius,255,255));
+        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointE.getX1() + radius ,pointE.getY1() + radius,70, 180));
+        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointB.getX1() + radius,pointB.getY1() + radius,70, 180));
         pDesign.addFigure(new StraightBorder(pointB.getX1() + radius, pointC.getX1() + radius , pointB.getY1() + radius , pointC.getY1() + radius));
         pDesign.addFigure(new StraightBorder(pointC.getX1() + radius, pointD.getX1() + radius ,pointC.getY1() + radius , pointD.getY1() + radius));
         
