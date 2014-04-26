@@ -30,19 +30,19 @@ public class EditorDrawning implements DesignDrawnI {
                     Circle circle = (Circle) figureList.get(listLong);
                     if(circle.getFill()){
                         graphic.setColor(circle.getColor());
-                        graphic.fillOval(circle.getX1(),circle.getY1(),circle.getRadio(),circle.getRadio());
+                        graphic.fillOval(circle.getX1(),circle.getY1(),circle.getRadio()*2,circle.getRadio()*2);
                         graphic.setColor(circle.getStroke());
-                        graphic.drawOval(circle.getX1(),circle.getY1(),circle.getRadio(),circle.getRadio());
+                        graphic.drawOval(circle.getX1(),circle.getY1(),circle.getRadio()*2,circle.getRadio()*2);
                     }else{
                         graphic.setColor(circle.getStroke());
-                        graphic.drawOval(circle.getX1(),circle.getY1(),circle.getRadio(),circle.getRadio());
+                        graphic.drawOval(circle.getX1(),circle.getY1(),circle.getRadio()*2,circle.getRadio()*2);
                     }
                     
                     break;
                     
                 case DrawPoint:
                         DrawingPoint point = (DrawingPoint) figureList.get(listLong);
-                        graphic.fillOval(point.getX1(),point.getY1(),point.getDrawingPoint(),point.getDrawingPoint());
+                        graphic.fillOval(point.getX1(),point.getY1(),point.getDrawingPoint()*2,point.getDrawingPoint()*2);
                     break;
                     
                 case StraightLine:
@@ -55,7 +55,7 @@ public class EditorDrawning implements DesignDrawnI {
             }
             listLong++;
         }      
-        int radio = figureList.get(0).getRadio();
+        int radio = figureList.get(0).getDrawingPoint();
         
         //draw the borders
         graphic.drawLine(figureList.get(1).getX1() + radio, figureList.get(1).getY1() + radio, figureList.get(2).getX1() + radio, figureList.get(2).getY1() + radio);

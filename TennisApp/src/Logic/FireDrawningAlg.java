@@ -76,7 +76,7 @@ public class FireDrawningAlg implements DesignDrawnI  {
         painter.setBackground(Color.white);
         
         painter.clearRect(0, 0, 550, 520);
-        int radioPoint = pfigureList.get(0).getRadio();
+        int radioPoint = pfigureList.get(0).getDrawingPoint();
 
         int[] puntosX=new int[5];
         int[] puntosY=new int[5];

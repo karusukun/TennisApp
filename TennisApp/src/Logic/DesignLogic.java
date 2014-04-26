@@ -70,10 +70,10 @@ public final class DesignLogic
     {
         Design pDesign = new Design(pName);
         pDesign.addFigure(new DrawingPoint(60, 130, PointID.A));
-        pDesign.addFigure(new DrawingPoint(230, 130, PointID.B));
-        pDesign.addFigure(new DrawingPoint(250, 170, PointID.C));
-        pDesign.addFigure(new DrawingPoint(300, 230, PointID.D));
-        pDesign.addFigure(new DrawingPoint(65, 230, PointID.E));
+        pDesign.addFigure(new DrawingPoint(300, 130, PointID.B));
+        pDesign.addFigure(new DrawingPoint(360, 200, PointID.C));
+        pDesign.addFigure(new DrawingPoint(450, 290, PointID.D));
+        pDesign.addFigure(new DrawingPoint(60, 290, PointID.E));
         this._DesignList.add(pDesign);
         setActualDesign(selectActualDesing(pName));
         System.out.println(_ActualDesign.getName());

@@ -1,6 +1,7 @@
 package Logic;
 import Library.Design;
 import Library.DrawingPoint;
+import Library.Figure;
 import Library.PointID;
 import Library.modePaint;
 import java.awt.Graphics;
@@ -15,46 +16,40 @@ public class PaintManager {
     {
         _Painters = new Hashtable<modePaint, DesignDrawnI>();
         _designList = new ArrayList<Design>();
-        _editPoints = new ArrayList<DrawingPoint>();
         _Painters.put(modePaint.Edit, new EditorDrawning());
         _Painters.put(modePaint.Arcade, new ArcadeDrawingAlg());
         _Painters.put(modePaint.Fire, new FireDrawningAlg());
     }
     
     
-    public void setDrawingPoints()
-    {
-        /*
-        if(DesignLogic.getDesignLogicInstance().getActualDesign() == null)
-        {
-            pruebas.getFigureList().add(new DrawingPoint(40,50,PointID.A));
-            pruebas.getFigureList().add(new DrawingPoint(200,50,PointID.B));
-            pruebas.getFigureList().add(new DrawingPoint(250,100,PointID.C));
-            pruebas.getFigureList().add(new DrawingPoint(300,300,PointID.D));
-            pruebas.getFigureList().add(new DrawingPoint(40,300,PointID.E));
-        }*/
-        
-        
-    }
-    
     public void MoveEditPoint(int pX,int pY)
     {
-        int diameter = 15;
-        DrawingPoint actualDP;
+        System.out.println("moviendo un punto");
+        int diameter = 30;
+        DrawingPoint actualDP = new DrawingPoint(0,0,null);
+        List<Figure> figureList;
         
-        for(int iteratorPoints = 0; iteratorPoints < _editPoints.size(); iteratorPoints++)
+        
+        figureList = DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList();
+        
+        
+        for( Figure Iterator : figureList)
         {
-            actualDP =_editPoints.get(iteratorPoints);
-            if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
-            {
-                  DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
-                  loadDesign(_canvas.getGraphics());
-             
+            if(actualDP.getFigureId()  == Iterator.getFigureId())
+            {    
+                actualDP = (DrawingPoint)Iterator;
+                
+                if(pX >= actualDP.getX1() && pX <= (actualDP.getX1() + diameter) && pY >= actualDP.getY1() && pY <= (actualDP.getY1()+ diameter))
+                {
+                      DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
+                      loadDesign(_canvas.getGraphics());
+
+                }
             }
         }
+    }
         
         
-    }    
     
     
     public void RequestDrawn(Design pDesign) {
@@ -106,6 +101,7 @@ public class PaintManager {
     private static PaintManager _PainterLogic;
     private Dictionary<modePaint, DesignDrawnI> _Painters;
     private List<Design> _designList;
-    private List<DrawingPoint> _editPoints;
+    
     public JPanel _canvas = null;
+
 }

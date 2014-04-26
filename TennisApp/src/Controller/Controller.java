@@ -32,7 +32,6 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
     private boolean _lineSelected = false;
     private boolean _circleSelected = false;
     private boolean _drawingPointSelection = true;
-    private boolean _mousePressed = false;
     
     
     
@@ -116,12 +115,10 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mousePressed(MouseEvent me) {
-        _mousePressed = true;
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        _mousePressed = false;
     }
 
     @Override
@@ -136,7 +133,7 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
 
     @Override
     public void mouseDragged(MouseEvent me) {
-        if (_drawingPointSelection && _mousePressed){
+        if (_drawingPointSelection){
             PaintManager.getInstance().MoveEditPoint(me.getX(),me.getY());            
         }
         
