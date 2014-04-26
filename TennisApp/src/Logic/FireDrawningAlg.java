@@ -19,12 +19,12 @@ public class FireDrawningAlg implements DesignDrawnI  {
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(pCircle.getColor());
         if(pCircle.getFill() ){
-            pGrap2.fillOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+            pGrap2.fillOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
         }
         Stroke stroke = new BasicStroke(pCircle.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
         pGrap2.setColor(pCircle.getStroke());
-        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
     }
     
     //Method to draw a curve border

@@ -17,11 +17,11 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     private void drawCircle(Circle pCircle){
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(pCircle.getColor());
-        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
         if(pCircle.getFill() ){
             int x = pCircle.getX1();
             int y = pCircle.getY1();
-            int radio = pCircle.getRadio();
+            int radio = pCircle.getRadio()*2;
             int angulo = 0;
             while(angulo<=360){
                 pGrap2.fillArc(x, y, radio, radio, angulo, 360);
@@ -32,7 +32,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
             new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
         pGrap2.setColor(pCircle.getStroke());
-        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio(), pCircle.getRadio());
+        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
     }
     
     //Method to draw a curve border
