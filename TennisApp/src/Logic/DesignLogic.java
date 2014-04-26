@@ -106,7 +106,7 @@ public final class DesignLogic
         
                 
         this._DesignList.add(pDesign);
-        setActualDesign(selectActualDesing(pName));
+        selectActualDesing(pName);
         System.out.println(_ActualDesign.getName());
     }
     
@@ -120,22 +120,22 @@ public final class DesignLogic
         return nameList;
     }
     
-    public Design selectActualDesing(String pName)
-    {
-        int position = 0;
+    public void selectActualDesing(String pName)
+    {        
         try
         {
-            while (position < _DesignList.size() &&  true != pName.equals(_DesignList.get(position).getName()))
-            {
-                position++;
-            }
-            return _DesignList.get(position);
-        }
+                for(Design iterator : _DesignList)
+                {
+                    if(iterator.getName().equals(pName))
+                    {
+                        setActualDesign(iterator);
+                    }
+                }
+        }    
         catch (Exception e)
         {
             //System.Console.WriteLine(indexException.ToString());
         }
-        return null;
         
     }
 

@@ -103,8 +103,9 @@ public class Controller implements ActionListener, MouseListener, MouseMotionLis
             PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
         } else if(ae.getSource() == _mainWindow.btn_LoadSelected)
         {
-            System.out.println(_mainWindow.jList_DesignList.getSelectedValue().toString());
-            //DesignLogic.getDesignLogicInstance().selectActualDesing(_mainWindow.JList_DesignsList.getName());
+            DesignLogic.getDesignLogicInstance().selectActualDesing(_mainWindow.jList_DesignList.getSelectedValue().toString());
+            PaintManager.getInstance().loadDesign(this._mainWindow.canvas_mainCanvas.getGraphics());
+        
         } else if(ae.getSource() == _mainWindow.btn_NewDesign)
         {
             String pName = JOptionPane.showInputDialog("Input Design Name");
