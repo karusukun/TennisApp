@@ -13,9 +13,12 @@ public class Sole extends Figure
     private int _y2;
 
     //Default builder
-    private  Sole() {
+    public  Sole(int pX1, int pX2, int pY1, int pY2) {
         
-        _x1 = _x2 = _y1 = _y2 = 0;
+        _x1 = pX1;
+        _x2 = pX2;
+        _y1 = pY1;
+        _y2 = pY2;
         this._kindFigure = kindFigure.Sole;
         
     }

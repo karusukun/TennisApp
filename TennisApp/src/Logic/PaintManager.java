@@ -1,5 +1,6 @@
 package Logic;
 import Library.*;
+import static Library.PointID.A;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.*;
@@ -40,6 +41,39 @@ public class PaintManager {
                 {
                       System.out.println("yup its worken");
                       DesignLogic.getDesignLogicInstance().setFigurePos(actualDP.getFigureId(), pX- diameter/2, pY - diameter/2);
+                      switch(actualDP.getID())
+                      {
+                          case A:
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX1(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY1(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX1(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY1(actualDP.getY1());
+                            break;
+                          case B:
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setX2(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(1).setY2(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX1(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY1(actualDP.getY1());
+                            break;
+                          case C:
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setX2(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(2).setY2(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX1(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY1(actualDP.getY1());
+                              break;
+                          case D:
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setX2(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(3).setY2(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX1(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY1(actualDP.getY1());
+                              break;
+                          case E:
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setX2(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(4).setY2(actualDP.getY1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setX2(actualDP.getX1());
+                              DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList().get(0).setY2(actualDP.getY1());
+                              break;
+                      }
                       loadDesign(_canvas.getGraphics());
 
                 }

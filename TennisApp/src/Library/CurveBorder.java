@@ -8,11 +8,13 @@ public class CurveBorder extends Border
     public CurveBorder(){
         this.curve = new QuadCurve2D.Float();
         this._kindFigure = kindFigure.CurveBorder;
+        this.angle = 0;
     }
     
     public CurveBorder(int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
         this.curve = new QuadCurve2D.Float(pX, pY, pCtrlX, pCtrlY, pX2, pY2);
         _kindFigure = kindFigure.CurveBorder;
+        this.angle = 0;
     }
     
     
@@ -46,6 +48,16 @@ public class CurveBorder extends Border
     public QuadCurve2D getCurve() {
         return curve;
     }
+
+    public int getAngle() {
+        return angle;
+    }
+
+    public void setAngle(int angle) {
+        this.angle = angle;
+    }
+    
+    
     
    @Override
     public int getRadio() {
@@ -84,4 +96,5 @@ public class CurveBorder extends Border
     private QuadCurve2D curve;
     private int ctrlX;
     private int ctrlY;
+    private int angle;
 }

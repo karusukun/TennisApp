@@ -1,8 +1,11 @@
 package Logic;
+import Library.CurveBorder;
 import Library.Design;
 import Library.DrawingPoint;
 import Library.Figure;
 import Library.PointID;
+import Library.Sole;
+import Library.StraightBorder;
 import Library.StraightLine;
 import java.awt.Color;
  import java.io.*;
@@ -70,7 +73,7 @@ public final class DesignLogic
     {
         Design pDesign = new Design(pName);
         
-        //Add the drawing points to the design
+        
         DrawingPoint pointA,pointB,pointC,pointD,pointE;
         
         pointA = new DrawingPoint(60, 130, PointID.A);
@@ -79,17 +82,29 @@ public final class DesignLogic
         pointD = new DrawingPoint(450, 290, PointID.D);
         pointE = new DrawingPoint(60, 290, PointID.E);
         
-        
-        
-        pDesign.addFigure();
-        pDesign.addFigure();
-        pDesign.addFigure();
-        pDesign.addFigure();
-        pDesign.addFigure();
+        int radius = pointA.getDrawingPoint();
         
         //Add the borders to the design
+        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointE.getX1() + radius ,pointE.getY1() + radius,10,200));
+        pDesign.addFigure(new CurveBorder(pointA.getX1()+ radius ,pointA.getY1() + radius ,pointB.getX1() + radius,pointB.getY1() + radius,255,255));
+        pDesign.addFigure(new StraightBorder(pointB.getX1() + radius, pointC.getX1() + radius , pointB.getY1() + radius , pointC.getY1() + radius));
+        pDesign.addFigure(new StraightBorder(pointC.getX1() + radius, pointD.getX1() + radius ,pointC.getY1() + radius , pointD.getY1() + radius));
         
         
+        //Add Sole
+        pDesign.addFigure(new Sole(pointD.getX1() + radius, pointE.getX1() + radius, pointD.getY1() + radius, pointE.getY1()+ radius));
+        
+        
+        //Add the drawing points to the design
+        pDesign.addFigure(pointA);
+        pDesign.addFigure(pointB);
+        pDesign.addFigure(pointC);
+        pDesign.addFigure(pointD);
+        pDesign.addFigure(pointE);
+        
+        
+        
+                
         this._DesignList.add(pDesign);
         setActualDesign(selectActualDesing(pName));
         System.out.println(_ActualDesign.getName());
