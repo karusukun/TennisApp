@@ -9,63 +9,63 @@ import java.awt.geom.QuadCurve2D;
 import java.util.List;
 
 public class FireDrawningAlg implements DesignDrawnI  {
-    @Override
+    @Override       //f(n)=5+84N+drawfiller -> O(N)=n
     public void paint(Graphics pGrapic){
-        this.graphic = pGrapic;
-        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
+        this.graphic = pGrapic;//1
+        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList()); //4+84N
     }
     //this method has to draw a circle or a fill circle
-    private void drawCircle(Circle pCircle){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pCircle.getColor());
-        if(pCircle.getFill() ){
-            pGrap2.fillOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
+    private void drawCircle(Circle pCircle){//f(n)=59
+        Graphics2D pGrap2 = (Graphics2D) graphic;//1
+        pGrap2.setColor(pCircle.getColor());//5
+        if(pCircle.getFill() ){//3
+            pGrap2.fillOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);//16
         }
-        Stroke stroke = new BasicStroke(pCircle.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
-        pGrap2.setStroke(stroke);
-        pGrap2.setColor(pCircle.getStroke());
-        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);
+        Stroke stroke = new BasicStroke(pCircle.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);//10
+        pGrap2.setStroke(stroke);//3
+        pGrap2.setColor(pCircle.getStroke());//5
+        pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);//16
     }
     
-    //Method to draw a curve border
+    //Method to draw a curve border f(n)=42
     private void drawCurveBorder(CurveBorder pBorder){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pBorder.getColor());
-        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
-        pGrap2.setStroke(stroke);
-        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),pBorder.getCtrlX(), pBorder.getCtrlY(), pBorder.getX2(), pBorder.getY2()));
+        Graphics2D pGrap2 = (Graphics2D) graphic;//1
+        pGrap2.setColor(pBorder.getColor());//5
+        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);//10
+        pGrap2.setStroke(stroke);//3
+        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),pBorder.getCtrlX(), pBorder.getCtrlY(), pBorder.getX2(), pBorder.getY2()));//23
     }
     
-    //draw the sole
+    //draw the sole f(n)=34
     private void drawSole(Sole pSole){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pSole.getColor());
-        Stroke stroke = new BasicStroke(pSole.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);
-        pGrap2.setStroke(stroke);
-        pGrap2.drawLine(pSole.getX1(), pSole.getY1(), pSole.getX2(), pSole.getY2());
+        Graphics2D pGrap2 = (Graphics2D) graphic;//1
+        pGrap2.setColor(pSole.getColor());//5
+        Stroke stroke = new BasicStroke(pSole.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);//10
+        pGrap2.setStroke(stroke);//3
+        pGrap2.drawLine(pSole.getX1(), pSole.getY1(), pSole.getX2(), pSole.getY2());//15
     }
      
-    //draw a simple line
+    //draw a simple line  f(n)=77
     private void drawStraightLine(StraightLine pLine){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pLine.getColor());
-        Stroke stroke = new BasicStroke(pLine.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);
-        pGrap2.setStroke(stroke);
-        if(pLine.getFill()){
-             pGrap2.drawLine(pLine.getX1()-1, pLine.getY1()-1, pLine.getX2()-1, pLine.getY2()-1);
-             pGrap2.drawLine(pLine.getX1()+1, pLine.getY1()+1, pLine.getX2()+1, pLine.getY2()+1);
+        Graphics2D pGrap2 = (Graphics2D) graphic;//1
+        pGrap2.setColor(pLine.getColor());//5
+        Stroke stroke = new BasicStroke(pLine.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);//10
+        pGrap2.setStroke(stroke);//3
+        if(pLine.getFill()){//3
+             pGrap2.drawLine(pLine.getX1()-1, pLine.getY1()-1, pLine.getX2()-1, pLine.getY2()-1);//18
+             pGrap2.drawLine(pLine.getX1()+1, pLine.getY1()+1, pLine.getX2()+1, pLine.getY2()+1);//18
         }
-       pGrap2.setColor(pLine.getStroke());
-       pGrap2.drawLine(pLine.getX1(), pLine.getY1(), pLine.getX2(), pLine.getY2());
+       pGrap2.setColor(pLine.getStroke());//5
+       pGrap2.drawLine(pLine.getX1(), pLine.getY1(), pLine.getX2(), pLine.getY2());//14
     }
    
-    //draw the straigh border
+    //draw the straigh border       f(n)=33
     private void drawStraightBorder(StraightBorder pBorder){
-        Graphics2D pGrap2 = (Graphics2D) graphic;
-        pGrap2.setColor(pBorder.getColor());
-        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);
-        pGrap2.setStroke(stroke);
-        pGrap2.drawLine(pBorder.getX1(), pBorder.getY1(), pBorder.getX2(), pBorder.getY2());
+        Graphics2D pGrap2 = (Graphics2D) graphic;//1
+        pGrap2.setColor(pBorder.getColor());//5
+        Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 10, 0 }, 0);//10
+        pGrap2.setStroke(stroke);//3
+        pGrap2.drawLine(pBorder.getX1(), pBorder.getY1(), pBorder.getX2(), pBorder.getY2());//14
     }
     
     //We do it with a parter example and help
@@ -102,45 +102,48 @@ public class FireDrawningAlg implements DesignDrawnI  {
         painter.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); 
     }
     
+    
+    
     //Method to draw the differents figures
+    //f(n) = 4+84N
     private void drawFigures(List<Figure> pfigureList){
         //drawFillers(pfigureList);
-        int listLong=0;
-        while(listLong < pfigureList.size()){
+        int listLong=0;//1
+        while(listLong < pfigureList.size()){ //1+N*(82+2)
             //depend on the kind of figure it call the respective function of painting
-            kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
+            kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();//6
             switch(typeFigure){
-                case Circle:
-                    Circle circle = (Circle) pfigureList.get(listLong);
-                    drawCircle(circle);
-                    break;
+                case Circle: //64
+                    Circle circle = (Circle) pfigureList.get(listLong);//4
+                    drawCircle(circle); //59
+                    break;//1
                     
-                case CurveBorder:
-                        CurveBorder border = (CurveBorder) pfigureList.get(listLong);
-                        drawCurveBorder(border);
-                    break;
+                case CurveBorder:  //47
+                        CurveBorder border = (CurveBorder) pfigureList.get(listLong);//4
+                        drawCurveBorder(border);//42
+                    break;//1
                  
-                case Sole:
-                        Sole sole = (Sole) pfigureList.get(listLong);
-                        drawSole(sole);
-                    break;
+                case Sole: //39
+                        Sole sole = (Sole) pfigureList.get(listLong);//4
+                        drawSole(sole);//34
+                    break;//1
                     
-                case StraightLine:
-                        StraightLine line = (StraightLine) pfigureList.get(listLong);
-                        drawStraightLine(line);
-                    break;
+                case StraightLine: //82
+                        StraightLine line = (StraightLine) pfigureList.get(listLong);//4
+                        drawStraightLine(line);//77
+                    break;//1
                     
-                case StraighBorder:
-                        StraightBorder recBorder = (StraightBorder) pfigureList.get(listLong);
-                        drawStraightBorder(recBorder);
-                    break;
+                case StraighBorder: //38
+                        StraightBorder recBorder = (StraightBorder) pfigureList.get(listLong);//4
+                        drawStraightBorder(recBorder);//33
+                    break;//1
                 default:
                     System.out.println("Not found figure Fire\n");
                     break;
             }
-            listLong++;
+            listLong++;//2
         }
-        graphic.finalize();
+        graphic.finalize();//2
     }
     
     public FireDrawningAlg() {

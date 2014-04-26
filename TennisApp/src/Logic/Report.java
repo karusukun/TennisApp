@@ -23,11 +23,16 @@ public class Report {
 
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true), "UTF8")); 
 
-            out.append("\nDesign Name: "+ this.string__designName);
-            out.append(" \nDate: "+this.date__reportDate); 
-            out.append("\nArcade time: "+this.float__arcadeTime); 
-            out.append("\nFire time: "+this.float__fireTime); 
-            out.append("\nBest time task: "+Float.toString(this.bestTimeExecution)); 
+            out.write("\nDesign Name: "+ this.string__designName);
+            out.write(" ");
+            out.write(" \nDate: "+this.date__reportDate); 
+            out.write(" ");
+            out.write("\nArcade time: "+this.float__arcadeTime); 
+            out.write(" ");
+            out.write("\nFire time: "+this.float__fireTime); 
+            out.write(" ");
+            out.write("\nBest time task: "+Float.toString(this.bestTimeExecution));
+            out.write(" ");
             out.close(); 
 
         }catch(IOException e){}; 
@@ -39,11 +44,11 @@ public class Report {
         this.string__designName = DesignLogic.getDesignLogicInstance().getActualDesign().getName();
         
         if(pMode == modePaint.Arcade){
-            this.float__arcadeTime = Float.toString(pTime);
+            this.float__arcadeTime = Float.toString(pTime/1000);
         }if(pMode == modePaint.Fire){
-            this.float__fireTime =  Float.toString(pTime);
-        }if(bestTimeExecution > pTime){
-            this.bestTimeExecution = pTime;
+            this.float__fireTime =  Float.toString(pTime/1000);
+        }if(bestTimeExecution > pTime/1000){
+            this.bestTimeExecution = pTime/1000;
         }
         createReportTxt();
     }

@@ -9,12 +9,14 @@ import java.util.List;
 public class ArcadeDrawingAlg implements DesignDrawnI  {
     
     @Override       //paint method for the figures
+    
+    // f(n)= 5+(3681)N+ falta el fill -> O(n)=n
     public void paint(Graphics pGraphic){
         this.graphic = pGraphic;                //+1
-        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());
+        drawFigures(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList()); //4+(3681)N+ falta el fill
     }
     
-    // Method to draw a circle O(n)=3671
+    // Method to draw a circle f(n)=3671
     private void drawCircle(Circle pCircle){
         Graphics2D pGrap2 = (Graphics2D) graphic;   //+1
         pGrap2.setColor(pCircle.getColor());        //+2+1+2 = 5
@@ -36,7 +38,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.drawOval(pCircle.getX1(), pCircle.getY1(), pCircle.getRadio()*2, pCircle.getRadio()*2);//+2+10+4
     }
     
-    //Method to draw a curve border O(n)=36
+    //Method to draw a curve border f(n)=36
     private void drawCurveBorder(CurveBorder pBorder){
         Graphics2D pGrap2 = (Graphics2D) graphic;//+1
         pGrap2.setColor(pBorder.getColor());//5
@@ -45,7 +47,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),pBorder.getCtrlX(), pBorder.getCtrlY(), pBorder.getX2(), pBorder.getY2()));//17
     }
     
-    //method to draw a straight lone O(n)= 116
+    //method to draw a straight lone f(n)= 116
     private void drawStraightLine(StraightLine pLine){
         Graphics2D pGrap2 = (Graphics2D) graphic;//1
         pGrap2.setColor(pLine.getColor());//5
@@ -64,7 +66,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
        pGrap2.drawLine(pLine.getX1(), pLine.getY1(), pLine.getX2(), pLine.getY2());//14
     }
    
-    //Method to draw a sole O(n)=30
+    //Method to draw a sole f(n)=30
      private void drawSole(Sole pSole){
         Graphics2D pGrap2 = (Graphics2D) graphic;//1
         pGrap2.setColor(pSole.getColor());//5
@@ -73,7 +75,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
         pGrap2.drawLine(pSole.getX1(), pSole.getY1(), pSole.getX2(), pSole.getY2());//14
     }
      
-    //Method to draw a straigh border O(n)= 33
+    //Method to draw a straigh border f(n)= 33
     private void drawStraightBorder(StraightBorder pBorder){
         Graphics2D pGrap2 = (Graphics2D) graphic;//1
         pGrap2.setColor(pBorder.getColor());//5
@@ -83,64 +85,56 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
     }
     
     //We do it with a parter example
-    private void drawFillers(List<Figure> pfigureList){
+    private void drawFillers(){
         Graphics2D painter = (Graphics2D) graphic;
         painter.setBackground(Color.white);
         
+        ArrayList<DrawingPoint> pointsList = DesignLogic.getDesignLogicInstance().getActualDesign().getPoints();
         painter.clearRect(0, 0, 550, 520);
-        int radioPoint = pfigureList.get(0).getDrawingPoint();
+        int radioPoint = pointsList.get(0).getDrawingPoint();
 
-        int[] puntosX=new int[5];
-        int[] puntosY=new int[5];
-        for (int i=0;i<=4;i++){
-            puntosX[i]=pfigureList.get(i).getX1() + radioPoint;
-            puntosY[i]=pfigureList.get(i).getY1() + radioPoint;
+       int[] puntosX=new int[pointsList.size()];
+       int[] puntosY=new int[pointsList.size()];
+        
+        for (int i=0;i<pointsList.size();i++){
+            puntosX[i]=pointsList.get(i).getX1() + radioPoint;
+            puntosY[i]=pointsList.get(i).getY1() + radioPoint;
         }             
         
-        painter.setColor(pfigureList.get(0).getColor());
-        painter.drawPolygon(puntosX, puntosY, puntosX.length);
-        painter.fillPolygon(puntosX, puntosY, puntosX.length);
-        painter.fillArc((pfigureList.get(0).getX1()+ radioPoint)-50, pfigureList.get(0).getY1()+ radioPoint,100,( pfigureList.get(4).getX1()- pfigureList.get(0).getY1()),90, 180);
-        
-        painter.setColor(Color.black);
-        painter.drawLine(pfigureList.get(1).getX1() + radioPoint, pfigureList.get(1).getY1() + radioPoint, pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint);
-        painter.drawLine(pfigureList.get(2).getX1() + radioPoint, pfigureList.get(2).getY1() + radioPoint, pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint);
-        painter.drawLine(pfigureList.get(3).getX1() + radioPoint, pfigureList.get(3).getY1() + radioPoint, pfigureList.get(4).getX1() + radioPoint, pfigureList.get(4).getY1() + radioPoint);
-        painter.draw(new QuadCurve2D.Float(pfigureList.get(0).getX1() + radioPoint, pfigureList.get(0).getY1() + radioPoint, 255, 255, pfigureList.get(1).getX1() + radioPoint, pfigureList.get(1).getY1() + radioPoint));
-        painter.draw(new QuadCurve2D.Float(pfigureList.get(0).getX1() + radioPoint, pfigureList.get(0).getY1() + radioPoint, 10, 200, pfigureList.get(4).getX1() + radioPoint, pfigureList.get(4).getY1() + radioPoint));
-        painter.setColor(Color.white);
-        painter.fillArc(pfigureList.get(0).getX1() + radioPoint, (pfigureList.get(0).getY1() + radioPoint)-40,( pfigureList.get(1).getX1()- pfigureList.get(0).getX1()),70,180, 180); 
+        painter.setColor(Color.CYAN);
+        painter.fillPolygon(puntosX, puntosY, puntosX.length);painter.setColor(Color.white);
+        painter.fillArc(pointsList.get(0).getX1() + radioPoint, (pointsList.get(0).getY1() + radioPoint)-40,( pointsList.get(1).getX1()- pointsList.get(0).getX1()),50,150, 200); ; 
     }
     
-    //Method to draw figures O(n)= 2+(3679)N+ falta el fill
-    /*It recives a list of figures to draw and paint it with a graphics*/
+    //Method to draw figures f(n)= 4+(3681)N+ falta el fill
     private void drawFigures(List<Figure> pfigureList){
-        //drawFillers(DesignLogic.getDesignLogicInstance().getActualDesign().getFigureList());//Corregir fill
+        //drawFillers();//Corregir fill
         int listLong=0;//1
-        while(listLong < pfigureList.size()){//1+n*(3677+2)
-            kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();
-            switch(typeFigure){
-                case Circle:
+        
+        while(listLong < pfigureList.size()){//1+n*(3681)    ->el 3677 es del draw circle q es el peor caso
+            kindFigure typeFigure = pfigureList.get(listLong).getKindFigure();//6
+            switch(typeFigure){//1
+                case Circle:            //3677
                     Circle circle = (Circle) pfigureList.get(listLong);//4
                     drawCircle(circle);//3671+1
                     break;//1
                     
-                case CurveBorder:
+                case CurveBorder:           //29
                         CurveBorder border = (CurveBorder) pfigureList.get(listLong);//4
                         drawCurveBorder(border); //23+1
                     break;//1
                  
-                case Sole:
+                case Sole:              //36
                         Sole sole = (Sole) pfigureList.get(listLong);//4
                         drawSole(sole); //30+1
                     break;//1
                     
-                case StraightLine:
+                case StraightLine:          //122
                         StraightLine line = (StraightLine) pfigureList.get(listLong);//4
                         drawStraightLine(line); //116+1
                     break;//1
                     
-                case StraighBorder:
+                case StraighBorder:         //39
                         StraightBorder recBorder = (StraightBorder) pfigureList.get(listLong);//4
                         drawStraightBorder(recBorder); //33+1
                     break;//1
@@ -150,7 +144,7 @@ public class ArcadeDrawingAlg implements DesignDrawnI  {
             }
             listLong++;//2
         }
-        graphic.finalize();
+        graphic.finalize();//2
     }
     
     public ArcadeDrawingAlg() {

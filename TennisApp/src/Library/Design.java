@@ -79,6 +79,19 @@ public class Design
         }
         return null;
     }
+    public ArrayList<DrawingPoint> getPoints()
+    {
+        ArrayList<DrawingPoint> points = new ArrayList<DrawingPoint>();
+        
+        for(Figure iterator : _figureList)
+        {
+            if(iterator._kindFigure == kindFigure.DrawPoint )
+            {
+                points.add((DrawingPoint)iterator);
+            }
+        }
+        return points;
+    }
     
     public ArrayList<Border> getBorders()
     {
