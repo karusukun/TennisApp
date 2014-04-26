@@ -5,7 +5,12 @@ import java.awt.geom.QuadCurve2D;
 public class CurveBorder extends Border
 {    
     public CurveBorder(int pX, int pY, int pX2, int pY2, int pCtrlX, int pCtrlY) {
-        this.curve = new QuadCurve2D.Float(pX, pY, pCtrlX, pCtrlY, pX2, pY2);
+        this._x1=pX;
+        this._y1=pY;
+        this._x2=pX2;
+        this._y2=pY2;
+        this.ctrlX=pCtrlX;
+        this.ctrlY=pCtrlY;
         _kindFigure = kindFigure.CurveBorder;
         this.angle = 0;
     }
@@ -13,12 +18,6 @@ public class CurveBorder extends Border
     
     //Getters and setters of the properties
     
-    
-
-    public void setCurve(QuadCurve2D curve) {
-        this.curve = curve;
-    }
-
     public int getCtrlX() {
         return ctrlX;
     }
@@ -34,13 +33,6 @@ public class CurveBorder extends Border
     public void setCtrlY(int ctrlY) {
         this.ctrlY = ctrlY;
     }
-    
-    
-    
-    @Override
-    public QuadCurve2D getCurve() {
-        return curve;
-    }
 
     public int getAngle() {
         return angle;
@@ -50,7 +42,6 @@ public class CurveBorder extends Border
         this.angle = angle;
     }
     
-    private QuadCurve2D curve;
     private int ctrlX;
     private int ctrlY;
     private int angle;

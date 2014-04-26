@@ -136,11 +136,11 @@ public class PaintManager {
 
     public void loadDesign(Graphics pG) 
     {
-        //long timeStart = System.currentTimeMillis();
+        long timeStart = System.currentTimeMillis();
         DesignDrawnI painter = _Painters.get(_ModeType);
         painter.paint(pG);
-        //long timeEnd = System.currentTimeMillis();
-        //Report rep = new Report(_ModeType, timeEnd-timeStart);
+        long timeEnd = System.currentTimeMillis();
+        Report rep = new Report(_ModeType, timeEnd-timeStart);
 //this._canvas.paint(painter.paint(pDesign,pG));
         
     }

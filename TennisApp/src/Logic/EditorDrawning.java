@@ -21,13 +21,9 @@ public class EditorDrawning implements DesignDrawnI {
     private void drawCurveBorder(CurveBorder pBorder, Graphics graphic){
         Graphics2D pGrap2 = (Graphics2D) graphic;
         pGrap2.setColor(Color.BLACK);
-        System.out.println(pBorder.getCtrlX());
-        System.out.println(pBorder.getCtrlY());
-        System.out.println(pBorder.getX1());
-        System.out.println(pBorder.getY1());
         Stroke stroke = new BasicStroke(pBorder.getStroke_Thickness(), BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0,new float[] { 10, 0 }, 0);
         pGrap2.setStroke(stroke);
-        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),70, 180, pBorder.getX2(), pBorder.getY2()));
+        pGrap2.draw(new QuadCurve2D.Float(pBorder.getX1(), pBorder.getY1(),pBorder.getCtrlX(), pBorder.getCtrlY(), pBorder.getX2(), pBorder.getY2()));
     }
     
     //draw the sole
